@@ -23,7 +23,7 @@ public class DBhelper extends SQLiteOpenHelper{
                 " sodienthoai text not null," +
                 " diachi text not null," +
                 "loaitaikhoan text not null," +
-                " anhtaikhoan text not null)";
+                " anhkhachhang text not null)";
                 db.execSQL(khachhang);
 
         String loaiSanPham = "CREATE TABLE LOAISANPHAM(" +
