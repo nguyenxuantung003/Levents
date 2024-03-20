@@ -1,9 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".Activity.Login_Activity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logo_fpt_polytechnic"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/anh_2"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="ĐĂNG NHẬP"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="100dp"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/edtTenDangNhap"
+        android:layout_width="match_parent"
+        android:background="@drawable/custom_input"
+        android:paddingStart="10dp"
+        android:layout_height="60dp"
+        android:textSize="14sp"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/ten_dang_nhap"/>
+    <EditText
+        android:id="@+id/edtMatKhau"
+        android:layout_width="match_parent"
+        android:background="@drawable/custom_input"
+        android:paddingStart="10dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="14dp"
+        android:textSize="14sp"
+        android:hint="@string/mat_khau"/>
+    <TextView
+        android:id="@+id/tvQuenMatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quên mật khẩu"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:layout_marginBottom="25sp"
+        android:layout_gravity="end"
+        android:textColor="#3416DC"/>
+
+    <Button
+        android:id="@+id/btnDangNhap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#CBC09A"
+        android:text="ĐĂNG NHẬP"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp"
+        android:textSize="25sp"
+        app:cornerRadius="15dp" />
+
+    <TextView
+        android:id="@+id/tvDangKy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Đăng ký tài khoản mới"
+        android:textSize="20sp"
+        android:textColor="#3416DC"/>
+
+</LinearLayout>
