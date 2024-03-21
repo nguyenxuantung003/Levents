@@ -3,8 +3,6 @@ package com.example.levents.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
 public class DBhelper extends SQLiteOpenHelper{
     static String DB_NAME = "Levents";
     static int DB_VERSION = 001;
@@ -75,7 +73,7 @@ public class DBhelper extends SQLiteOpenHelper{
                 " sodienthoai text not null," +
                 " diachi text not null," +
                 "loaitaikhoan text not null," +
-                " anhtaikhoan text not null)";
+                " anhnhanvien text not null)";
         db.execSQL(nhanvien);
     }
     @Override
