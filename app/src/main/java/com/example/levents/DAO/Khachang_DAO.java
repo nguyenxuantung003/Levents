@@ -13,11 +13,9 @@ import com.example.levents.Model.Khachhang;
 import java.util.ArrayList;
 
 public class Khachang_DAO {
-    DBhelper dBhelper;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-
-
+    static DBhelper dBhelper;
+    static SharedPreferences sharedPreferences;
+    static SharedPreferences.Editor editor;
     public ArrayList<Khachhang> getAllKhachhang() {
 
         ArrayList<Khachhang> list = new ArrayList<>();
@@ -47,32 +45,52 @@ public class Khachang_DAO {
         return list;
     }
 
-    public boolean checkDangNhap(String tenDangNhap, String matKhau) {
+    public static boolean checkDangNhap(String tenDangNhap, String matKhau) {
+        String role;
         Log.d(TAG, "CheckDangNhap: " + tenDangNhap + " - " + matKhau);
         SQLiteDatabase database = dBhelper.getReadableDatabase();
         try {
-            Cursor cursor = database.rawQuery("SELECT * FROM TAIKHOAN WHERE tendangnhap = ? AND matkhau = ?", new String[]{tenDangNhap, matKhau});
-            if (cursor.getCount() > 0) {
-                cursor.moveToFirst();
+           Cursor cursorKH = database.rawQuery("SELECT * FROM KHACHHANG WHERE tendangnhap = ? AND matkhau = ?", new String[]{tenDangNhap, matKhau});
+            if (cursorKH.getCount() > 0) {
+                cursorKH.moveToFirst();
+                role = "khach hang";
                 editor = sharedPreferences.edit();
-                editor.putInt("makhachhang", cursor.getInt(0));
-                editor.putString("tendangnhap", cursor.getString(1));
-                editor.putString("matkhau", cursor.getString(2));
-                editor.putString("hoten", cursor.getString(3));
-                editor.putString("email", cursor.getString(4));
-                editor.putString("sodienthoai", cursor.getString(5));
-                editor.putString("diachi", cursor.getString(6));
-                editor.putString("loaitaikhoan", cursor.getString(7));
-                editor.putString("anhtaikhoan", cursor.getString(8));
+                editor.putInt("makhachhang", cursorKH.getInt(0));
+                editor.putString("tendangnhap", cursorKH.getString(1));
+                editor.putString("matkhau", cursorKH.getString(2));
+                editor.putString("hoten", cursorKH.getString(3));
+                editor.putString("email", cursorKH.getString(4));
+                editor.putString("sodienthoai", cursorKH.getString(5));
+                editor.putString("diachi", cursorKH.getString(6));
+                editor.putString("loaitaikhoan", cursorKH.getString(7));
+                editor.putString("anhtaikhoan", cursorKH.getString(8));
                 editor.apply();
                 return true;
             } else {
-                return false;
+               Cursor cursorNV = database.rawQuery("SELECT * FROM NHANVIEN WHERE tendangnhap = ? AND matkhau = ?", new String[]{tenDangNhap, matKhau});
+                if (cursorNV.getCount() > 0) {
+                    cursorNV.moveToFirst();
+                    role = "nhanvien";
+                    editor = sharedPreferences.edit();
+                    editor.putInt("manhanvien", cursorNV.getInt(0));
+                    editor.putString("tendangnhap", cursorNV.getString(1));
+                    editor.putString("matkhau", cursorNV.getString(2));
+                    editor.putString("hoten", cursorNV.getString(3));
+                    editor.putString("email", cursorNV.getString(4));
+                    editor.putString("sodienthoai", cursorNV.getString(5));
+                    editor.putString("diachi", cursorNV.getString(6));
+                    editor.putString("loaitaikhoan", cursorNV.getString(7));
+                    editor.putString("anhtaikhoan", cursorNV.getString(8));
+                    editor.apply();
+                    return true;
+                }
             }
+            return false;
         } catch (Exception e) {
             Log.e(TAG, "Lỗi kiểm tra đăng nhập", e);
             return false;
         }
     }
+
 
 }
