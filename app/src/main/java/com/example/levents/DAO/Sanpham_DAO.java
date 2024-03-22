@@ -11,8 +11,8 @@ import com.example.levents.Database.DBhelper;
 import com.example.levents.Model.Sanpham;
 
 import java.util.ArrayList;
-
 public class Sanpham_DAO {
+
     DBhelper dBhelper;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
