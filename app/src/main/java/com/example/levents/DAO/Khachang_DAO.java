@@ -17,7 +17,6 @@ public class Khachang_DAO {
     static SharedPreferences sharedPreferences;
     static SharedPreferences.Editor editor;
     public ArrayList<Khachhang> getAllKhachhang() {
-
         ArrayList<Khachhang> list = new ArrayList<>();
         SQLiteDatabase db = dBhelper.getReadableDatabase();
         try {
