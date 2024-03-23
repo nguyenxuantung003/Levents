@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Levents"
         tools:targetApi="31">
         <activity
+            android:name=".activity_main_chitietsanpham"
+            android:exported="false" />
+        <activity
+            android:name=".actyvity_main_chitietsanpham"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Main_Activity_Nhanvien"
             android:exported="false" />
         <activity
@@ -23,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Trangchu_Activity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,8 +38,7 @@
         </activity>
         <activity
             android:name=".Activity.Login_Activity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
