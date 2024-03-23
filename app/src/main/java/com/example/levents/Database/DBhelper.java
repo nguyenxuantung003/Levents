@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper{
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 9;
+    static int DB_VERSION = 13;
     public DBhelper(Context context) {
         super(context, DB_NAME, null,DB_VERSION);
     }
@@ -33,6 +33,10 @@ public class DBhelper extends SQLiteOpenHelper{
                 "maloaisanpham integer primary key autoincrement," +
                 " tenloaisanpham text not null)";
                 db.execSQL(loaiSanPham);
+        db.execSQL("INSERT INTO LOAISANPHAM VALUES(1,'quan')");
+        db.execSQL("INSERT INTO LOAISANPHAM VALUES(2,'ao')");
+        db.execSQL("INSERT INTO LOAISANPHAM VALUES(3,'giay')");
+        db.execSQL("INSERT INTO LOAISANPHAM VALUES(4,'tat')");
 
         String sanpham = "CREATE TABLE SANPHAM(" +
                 " masanpham integer primary key autoincrement," +
@@ -41,9 +45,15 @@ public class DBhelper extends SQLiteOpenHelper{
                 " maloaisanpham integer REFERENCES LOAISANPHAM(maloaisanpham)," +
                 " mota text not null," +
                 " anhsanpham text not null," +
-                " soluong integer not null)" ;
+                " soluong integer not null," +
+                " soluongbanra integer not null)";
+        db.execSQL(sanpham);
+        db.execSQL("INSERT INTO SANPHAM VALUES(1,'Quan 01',100000,1,'Quan dep vai l','https://bizweb.dktcdn.net/100/346/633/files/thuc-an-kho-cho-cho-meo-ra-doi-nhu-the-nao.jpg?v=1553479214146',12,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(2,'Quan 2',200000,1,'Quan dep vai l','https://pethouse.com.vn/wp-content/uploads/2023/01/ezgif-5-1e317ae8fd-800x800.jpg',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(3,'Quan 3',300000,1,'Quan dep vai l','https://bizweb.dktcdn.net/100/091/443/products/hieuunganh-com-5e918dd032c21.png?v=1586597434450',10,0)");
+       db.execSQL("INSERT INTO SANPHAM VALUES(4,'Quan 4',400000,1,'Quan dep vai l','https://www.petmart.vn/wp-content/uploads/2021/06/thuc-an-cho-cho-poodle-con-royal-canin-poodle-puppy2.jpg',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(5,'Quan 5',500000,1,'Quan dep vai l','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUpL9qDcvaqEL85UX1lrU8RHRkD2AAnpcWCw&usqp=CAU',0,0)");
 
-                db.execSQL(sanpham);
 
         String giohang = "CREATE TABLE GIOHANG(" +
                 "magiohang integer primary key autoincrement, " +
