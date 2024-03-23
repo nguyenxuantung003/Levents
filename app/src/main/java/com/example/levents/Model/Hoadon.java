@@ -1,53 +1,64 @@
 package com.example.levents.Model;
 
 public class Hoadon {
-    private int mahoadon;
-    private int mataikhoan;
-    private String ngaydathang;
-    private int tongtin;
+    private int maDonHang;
+    private int maTaiKhoan;
+    private String tenTaiKhoan;
+
+    private String ngayDatHang;
+    private int tongTien;
     private String trangthai;
 
     public Hoadon() {
     }
 
-    public Hoadon(int mahoadon, int mataikhoan, String ngaydathang, int tongtin, String trangthai) {
-        this.mahoadon = mahoadon;
-        this.mataikhoan = mataikhoan;
-        this.ngaydathang = ngaydathang;
-        this.tongtin = tongtin;
+    public Hoadon(int maDonHang, int maTaiKhoan, String tenTaiKhoan, String ngayDatHang, int tongTien, String trangthai) {
+        this.maDonHang = maDonHang;
+        this.maTaiKhoan = maTaiKhoan;
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.ngayDatHang = ngayDatHang;
+        this.tongTien = tongTien;
         this.trangthai = trangthai;
     }
 
-    public int getMahoadon() {
-        return mahoadon;
+    public int getMaDonHang() {
+        return maDonHang;
     }
 
-    public void setMahoadon(int mahoadon) {
-        this.mahoadon = mahoadon;
+    public void setMaDonHang(int maDonHang) {
+        this.maDonHang = maDonHang;
     }
 
-    public int getMataikhoan() {
-        return mataikhoan;
+    public int getMaTaiKhoan() {
+        return maTaiKhoan;
     }
 
-    public void setMataikhoan(int mataikhoan) {
-        this.mataikhoan = mataikhoan;
+    public void setMaTaiKhoan(int maTaiKhoan) {
+        this.maTaiKhoan = maTaiKhoan;
     }
 
-    public String getNgaydathang() {
-        return ngaydathang;
+    public String getTenTaiKhoan() {
+        return tenTaiKhoan;
     }
 
-    public void setNgaydathang(String ngaydathang) {
-        this.ngaydathang = ngaydathang;
+    public void setTenTaiKhoan(String tenTaiKhoan) {
+        this.tenTaiKhoan = tenTaiKhoan;
     }
 
-    public int getTongtin() {
-        return tongtin;
+    public String getNgayDatHang() {
+        return ngayDatHang;
     }
 
-    public void setTongtin(int tongtin) {
-        this.tongtin = tongtin;
+    public void setNgayDatHang(String ngayDatHang) {
+        this.ngayDatHang = ngayDatHang;
+    }
+
+    public int getTongTien() {
+        return tongTien;
+    }
+
+    public void setTongTien(int tongTien) {
+        this.tongTien = tongTien;
     }
 
     public String getTrangthai() {
