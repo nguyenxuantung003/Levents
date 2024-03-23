@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper{
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 13;
+    static int DB_VERSION = 16;
     public DBhelper(Context context) {
         super(context, DB_NAME, null,DB_VERSION);
     }
@@ -61,6 +61,12 @@ public class DBhelper extends SQLiteOpenHelper{
                 " masanpham integer REFERENCES SANPHAM(masanpham)," +
                 " soluong integer not null)";
         db.execSQL(giohang);
+        db.execSQL("INSERT INTO GIOHANG VALUES(1,1,2,3)");
+        db.execSQL("INSERT INTO GIOHANG VALUES(2,2,1,2)");
+        db.execSQL("INSERT INTO GIOHANG VALUES(3,3,4,1)");
+        db.execSQL("INSERT INTO GIOHANG VALUES(4,4,3,2)");
+        db.execSQL("INSERT INTO GIOHANG VALUES(5,5,5,3)");
+
 
         String hoadon = "CREATE TABLE HOADON(" +
                 " mahoadon integer primary key autoincrement," +
@@ -69,6 +75,11 @@ public class DBhelper extends SQLiteOpenHelper{
                 " tongtien integer not null," +
                 " trangthai text not null)";
         db.execSQL(hoadon);
+        db.execSQL("INSERT INTO HOADON VALUES(1,1,'16/11/2023',100000,'Đã nhận hàng')");
+        db.execSQL("INSERT INTO HOADON VALUES(2,2,'16/12/2023',200000,'Đã nhận hàng')");
+        db.execSQL("INSERT INTO HOADON VALUES(3,3,'17/09/2023',300000,'Đã nhận hàng')");
+        db.execSQL("INSERT INTO HOADON VALUES(4,4,'18/01/2023',400000,'Đã nhận hàng')");
+        db.execSQL("INSERT INTO HOADON VALUES(5,2,'19/11/2023',50000,'Đã nhận hàng')");
 
         String chitiethoadon = "CREATE TABLE CHITIETHOADON(" +
                 "machitiethoadon integer primary key autoincrement," +
@@ -78,6 +89,11 @@ public class DBhelper extends SQLiteOpenHelper{
                 " dongia integer not null," +
                 " thanhtien integer not null)";
         db.execSQL(chitiethoadon);
+        db.execSQL("INSERT INTO CHITIETHOADON VALUES(1,2,5,5,20,20)");
+        db.execSQL("INSERT INTO CHITIETHOADON VALUES(2,2,1,4,30,30)");
+        db.execSQL("INSERT INTO CHITIETHOADON VALUES(3,3,2,3,30,30)");
+        db.execSQL("INSERT INTO CHITIETHOADON VALUES(4,2,3,2,30,30)");
+        db.execSQL("INSERT INTO CHITIETHOADON VALUES(5,3,5,5,10,10)");
 
         String nhanvien = "CREATE TABLE NHANVIEN(" +
                 "manhanvien integer primary key autoincrement," +

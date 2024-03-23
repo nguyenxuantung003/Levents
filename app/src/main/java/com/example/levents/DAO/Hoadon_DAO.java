@@ -45,10 +45,10 @@ public class Hoadon_DAO {
             if (cursor != null && cursor.moveToFirst()) {
                 do {
                     Hoadon hoaDon = new Hoadon();
-                    hoaDon.setMahoadon(cursor.getInt(cursor.getColumnIndex("mahoadon")));
-                    hoaDon.setMataikhoan(cursor.getInt(cursor.getColumnIndex("mataikhoan")));
-                    hoaDon.setNgaydathang(cursor.getString(cursor.getColumnIndex("ngaydathang")));
-                    hoaDon.setTongtin(cursor.getInt(cursor.getColumnIndex("tongtien")));
+                    hoaDon.setMaDonHang(cursor.getInt(cursor.getColumnIndex("mahoadon")));
+                    hoaDon.setMaTaiKhoan(cursor.getInt(cursor.getColumnIndex("mataikhoan")));
+                    hoaDon.setNgayDatHang(cursor.getString(cursor.getColumnIndex("ngaydathang")));
+                    hoaDon.setTongTien(cursor.getInt(cursor.getColumnIndex("tongtien")));
                     hoaDon.setTrangthai(cursor.getString(cursor.getColumnIndex("trangthai")));
                     list.add(hoaDon);
                 } while (cursor.moveToNext());
