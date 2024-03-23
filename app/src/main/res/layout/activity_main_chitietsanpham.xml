@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity_main_chitietsanpham">
+    tools:context=".Activity.activity_main_chitietsanpham">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/img_1" />
+            android:src="@drawable/anh_1" />
 
         <ImageView
             android:layout_width="80dp"

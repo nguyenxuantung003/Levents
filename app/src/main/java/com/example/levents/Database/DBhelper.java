@@ -1,14 +1,15 @@
 package com.example.levents.Database;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 public class DBhelper extends SQLiteOpenHelper{
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 001;
-
+    static int DB_VERSION = 9;
     public DBhelper(Context context) {
-        super(context, DB_NAME, null, DB_VERSION);
+        super(context, DB_NAME, null,DB_VERSION);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -23,6 +24,10 @@ public class DBhelper extends SQLiteOpenHelper{
                 "loaitaikhoan text not null," +
                 " anhkhachhang text not null)";
                 db.execSQL(khachhang);
+                db.execSQL("INSERT INTO KHACHHANG(makhachhang, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhkhachhang) VALUES(1,'Tung','123','Nguyen Xuan Tung','tung@gmail.com','0395257193','HA NOI','khachhang','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+                db.execSQL("INSERT INTO KHACHHANG(makhachhang, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhkhachhang) VALUES(2,'Huy','123','Nguyen Trong Huy','huy@gmail.com','0395257193','HA NOI','khachhang','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+        db.execSQL("INSERT INTO KHACHHANG(makhachhang, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhkhachhang) VALUES(3,'Tungac','123','Nguyen Xuan Tung','tung@gmail.com','0395257193','HA NOI','khachhang','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+        db.execSQL("INSERT INTO KHACHHANG(makhachhang, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhkhachhang) VALUES(4,'Huygb','123','Nguyen Trong Huy','huy@gmail.com','0395257193','HA NOI','khachhang','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
 
         String loaiSanPham = "CREATE TABLE LOAISANPHAM(" +
                 "maloaisanpham integer primary key autoincrement," +
@@ -75,10 +80,14 @@ public class DBhelper extends SQLiteOpenHelper{
                 "loaitaikhoan text not null," +
                 " anhnhanvien text not null)";
         db.execSQL(nhanvien);
+        db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(1,'DAI','123','Hoang Gia Dai','dai@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+        db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(2,'PHUONG','123','Lam Quynh Phuong','phuong@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+        db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(3,'DAIAC','123','Hoang Gia Dai','dai@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+        db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(4,'PHUONGBD','123','Lam Quynh Phuong','phuong@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        if (oldVersion != newVersion) {
+        if(oldVersion != newVersion){
             db.execSQL("DROP TABLE IF EXISTS KHACHHANG");
             db.execSQL("DROP TABLE IF EXISTS SANPHAM");
             db.execSQL("DROP TABLE IF EXISTS LOAISANPHAM");
@@ -87,7 +96,17 @@ public class DBhelper extends SQLiteOpenHelper{
             db.execSQL("DROP TABLE IF EXISTS CHITIETHOADON");
             db.execSQL("DROP TABLE IF EXISTS NHANVIEN");
             onCreate(db);
-
         }
+    }
+    public boolean isTableEmpty() {
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM NHANVIEN ", null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            int count = cursor.getInt(0);
+            cursor.close(); // Đóng con trỏ khi không cần nữa
+            return count == 0; // Trả về true nếu bảng rỗng, ngược lại trả về false
+        }
+        return true; // Trả về true nếu không thể truy vấn hoặc con trỏ là null
     }
 }

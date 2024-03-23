@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,10 +16,16 @@
         android:theme="@style/Theme.Levents"
         tools:targetApi="31">
         <activity
-            android:name=".activity_main_chitietsanpham"
-            android:exported="false" />
+            android:name=".Activity.welcome"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".actyvity_main_chitietsanpham"
+            android:name=".Activity.activity_main_chitietsanpham"
             android:exported="false" />
         <activity
             android:name=".Activity.Main_Activity_Nhanvien"
@@ -30,11 +39,6 @@
         <activity
             android:name=".Activity.Trangchu_Activity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.Login_Activity"
