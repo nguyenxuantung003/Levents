@@ -22,7 +22,7 @@ public class Khachang_DAO {
     public Khachang_DAO(Context context) {
         this.dbHelper = new DBhelper(context);
         if (context != null) {
-            sharedPreferences = context.getSharedPreferences("NGUOIDUNG", context.MODE_PRIVATE);
+            sharedPreferences = context.getSharedPreferences("KHACHHANG", context.MODE_PRIVATE);
         } else {
             // Xử lý khi context là null, có thể thông báo lỗi hoặc thực hiện xử lý phù hợp
             Log.e(TAG, "Context is null in NguoiDungDao constructor");
@@ -35,7 +35,7 @@ public class Khachang_DAO {
         ArrayList<Khachhang> list = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         try {
-            Cursor cursor = db.rawQuery("SELECT * FROM TAIKHOAN", null);
+            Cursor cursor = db.rawQuery("SELECT * FROM KHACHHANG", null);
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()) {

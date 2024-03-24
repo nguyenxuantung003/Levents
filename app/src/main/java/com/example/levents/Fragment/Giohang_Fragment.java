@@ -142,7 +142,6 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
                 //nếu tiền trong tài khoản đủ thì sẽ thực hiện trừ tiền
                 int soTienConLai = tienHienCo - totalAmount;
                 Khachang_DAO nguoiDungDao = new Khachang_DAO(getContext());
-
                 //Update lại tiền trong tài khoản của người dùng
                 if (nguoiDungDao.updateSoTien(mand, soTienConLai)) {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
