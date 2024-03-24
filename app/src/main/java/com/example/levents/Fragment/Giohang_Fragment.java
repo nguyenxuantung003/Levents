@@ -72,8 +72,8 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       binding = FragmentGiohangBinding.inflate(inflater, container, false);
-       view = binding.getRoot();
+        binding = FragmentGiohangBinding.inflate(inflater, container, false);
+        view = binding.getRoot();
         RecyclerView rcv = binding.rcvGioHang;
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         rcv.setLayoutManager(layoutManager);
@@ -90,9 +90,14 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
         sanphamDao = new Sanpham_DAO(getContext());
         list = giohangDao.getDanhSachGioHangByMaNguoiDung(mand);
         displayCart(list);
-        binding.btnThanhToan.setOnClickListener(view -> {
-           // showDialogThanhToan();
+        binding.btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // showDialogThanhToan();
+            }
+        });
 
+        binding.btnThanhToan.setOnClickListener(view -> {
         });
         return view;
     }
@@ -102,7 +107,6 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
             binding.txtTongTienThanhToan.setText(String.valueOf(totalAmount));
         }
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void showDialogThanhToan() {
         //Mở dialog xác nhận
         LayoutInflater layoutInflater = getLayoutInflater();

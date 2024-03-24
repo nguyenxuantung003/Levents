@@ -24,7 +24,6 @@ public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHo
     public Giohang_Adapter(Context context,  ArrayList<Giohang> list) {
         this.context = context;
         this.list = list;
-
         giohangDao = new Giohang_DAO(context);
 
     }
@@ -50,7 +49,6 @@ public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHo
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 giohang.setSelected(b);
                 holder.binding.chkChonSanPham.setChecked(b);
-
                 notifyDataSetChanged();
                 updateTotalPrice();
 
@@ -82,7 +80,12 @@ public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHo
 
     }
 
-    public void updateCartList(ArrayList<Giohang> cartList) {
+    public void updateCartList(ArrayList<Giohang> updatedList) {
+        list.clear();
+        list.addAll(updatedList);
+//        this.list = updatedList;
+        notifyDataSetChanged();
+
     }
 
     public Context getContext() {
@@ -132,7 +135,7 @@ public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
