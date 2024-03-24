@@ -50,9 +50,9 @@ public class Giohang_DAO {
         SQLiteDatabase database = dBhelper.getReadableDatabase();
         try {
             // Thêm điều kiện WHERE cho mã người dùng
-            String query = "SELECT GIOHANG.magiohang, GIOHANG.masanpham, GIOHANG.mataikhoan, GIOHANG.soluong,SANPHAM.tensanpham, SANPHAM.gia,SANPHAM.anhsanpham,SANPHAM.soluong,SANPHAM.soluongbanra " +
+            String query = "SELECT GIOHANG.magiohang, GIOHANG.masanpham, GIOHANG.makhachhang, GIOHANG.soluong,SANPHAM.tensanpham, SANPHAM.gia,SANPHAM.anhsanpham,SANPHAM.soluong,SANPHAM.soluongbanra " +
                     "FROM GIOHANG, SANPHAM " +
-                    "WHERE GIOHANG.masanpham = SANPHAM.masanpham AND GIOHANG.mataikhoan = ?";
+                    "WHERE GIOHANG.masanpham = SANPHAM.masanpham AND GIOHANG.makhachhang = ?";
 
             Cursor c = database.rawQuery(query, new String[]{String.valueOf(maNguoiDung)});
             if (c.getCount() != 0) {
@@ -80,7 +80,7 @@ public class Giohang_DAO {
         SQLiteDatabase da = dBhelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("masanpham", gioHang.getMaSanPham());
-        values.put("mataikhoan", gioHang.getMaNguoiDung());
+        values.put("makhachhang", gioHang.getMaNguoiDung());
         values.put("soluong", gioHang.getSoLuongMua());
         long check = da.insert("GIOHANG", null, values);
         return check > 0;

@@ -22,10 +22,10 @@ public class Sanpham_Adapter extends RecyclerView.Adapter<Sanpham_Adapter.ViewHo
     protected Sanpham_DAO sanphamDao;
     private Context context;
 
-    public Sanpham_Adapter(ArrayList<Sanpham> list, Sanpham_DAO sanphamDao, Context context) {
+    public Sanpham_Adapter(ArrayList<Sanpham> list, Context context) {
         this.list = list;
-        this.sanphamDao = sanphamDao;
         this.context = context;
+        sanphamDao = new Sanpham_DAO(context);
     }
     private Itemclick mListener;
 

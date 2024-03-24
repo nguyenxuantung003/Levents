@@ -15,6 +15,11 @@ public class Giohang {
 
     public Giohang() {
     }
+    public Giohang(int maSanPham, int maNguoiDung, int soLuongMua) {
+        this.maSanPham = maSanPham;
+        this.maNguoiDung = maNguoiDung;
+        this.soLuongMua = soLuongMua;
+    }
 
     public Giohang(int maGioHang, int maSanPham, int maNguoiDung, int soLuongMua, String tenSanPham, int giaSanPham, boolean isSelected, String anhSanPham, int soLuong, int soluongbanra) {
         this.maGioHang = maGioHang;
