@@ -20,12 +20,6 @@ public class Register_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-            imgBack = findViewById(R.id.imgBack);
-            imgBack.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            });
+
     }
 }

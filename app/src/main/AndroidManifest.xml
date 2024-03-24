@@ -13,8 +13,11 @@
         android:theme="@style/Theme.Levents"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.dang_ki"
+            android:exported="false" />
+        <activity
             android:name=".Activity.welcome"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,9 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Login_Activity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="false" />
