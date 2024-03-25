@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Levents"
         tools:targetApi="31">
+        <activity
+            android:name=".Fragment.QL_SanPham"
+            android:exported="false" />
         <activity
             android:name=".Activity.Register_Activity"
             android:exported="false" />
@@ -36,15 +40,13 @@
         <activity
             android:name=".Activity.Main_Activity_Khachhang"
             android:exported="false" />
-
         <activity
             android:name=".Activity.Trangchu_Activity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Activity.Login_Activity"
-            android:exported="false"></activity>
-<activity
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
     </application>
