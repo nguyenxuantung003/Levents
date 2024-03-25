@@ -52,7 +52,7 @@ public class Login_Activity extends AppCompatActivity {
         binding.tvDangKy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(Login_Activity.this, Register_Activity.class);
+                intent = new Intent(Login_Activity.this,Register_Activity.class);
                 startActivity(intent);
             }
         });
