@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper {
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 18;
+    static int DB_VERSION = 19;
 
     public DBhelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -72,7 +72,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
         String hoadon = "CREATE TABLE HOADON(" +
                 " mahoadon integer primary key autoincrement," +
-                " mataikhoan integer REFERENCES KHACHHANG(makhachhang)," +
+                " makhachhang integer REFERENCES KHACHHANG(makhachhang)," +
                 " ngaydathang text not null," +
                 " tongtien integer not null," +
                 " trangthai text not null)";
