@@ -23,7 +23,7 @@ public class Giohang_DAO {
         ArrayList<Giohang> list = new ArrayList<>();
         SQLiteDatabase database = dBhelper.getReadableDatabase();
         try {
-            Cursor c = database.rawQuery("SELECT GIOHANG.magiohang, GIOHANG.masanpham, GIOHANG.mataikhoan, GIOHANG.soluong,SANPHAM.tensanpham, SANPHAM.gia,SANPHAM.anhsanpham,SANPHAM.soluong,SANPHAM.soluongbanra FROM GIOHANG, SANPHAM WHERE GIOHANG.masanpham = SANPHAM.masanpham", null);
+            Cursor c = database.rawQuery("SELECT GIOHANG.magiohang, GIOHANG.masanpham, GIOHANG.makhachhang, GIOHANG.soluong,SANPHAM.tensanpham, SANPHAM.gia,SANPHAM.anhsanpham,SANPHAM.soluong,SANPHAM.soluongbanra FROM GIOHANG, SANPHAM WHERE GIOHANG.masanpham = SANPHAM.masanpham", null);
             if (c.getCount() != 0) {
                 c.moveToFirst();
                 do {
