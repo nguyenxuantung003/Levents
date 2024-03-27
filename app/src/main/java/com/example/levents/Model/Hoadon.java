@@ -11,6 +11,12 @@ public class Hoadon {
 
     public Hoadon() {
     }
+    public Hoadon(int maTaiKhoan, String ngayDatHang,int tongTien, String trangthai) {
+        this.maTaiKhoan = maTaiKhoan;
+        this.ngayDatHang = ngayDatHang;
+        this.tongTien = tongTien;
+        this.trangthai = trangthai;
+    }
 
     public Hoadon(int maDonHang, int maTaiKhoan, String tenTaiKhoan, String ngayDatHang, int tongTien, String trangthai) {
         this.maDonHang = maDonHang;

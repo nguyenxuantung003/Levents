@@ -69,7 +69,7 @@ public class Donhang_DAO {
     public int insertDonHang(Hoadon donHang) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("mataikhoan", donHang.getMaTaiKhoan());
+        values.put("makhachhang", donHang.getMaTaiKhoan());
         values.put("ngaydathang", donHang.getNgayDatHang());
         values.put("tongtien", donHang.getTongTien());
         values.put("trangthai", donHang.getTrangthai());
