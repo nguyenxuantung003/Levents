@@ -57,7 +57,7 @@ public class Chitiethoadon_DAO {
     public boolean insertDonHangChiTiet(Hoadonchitiet donHangChiTiet) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("madonhang", donHangChiTiet.getMaDonHang());
+        values.put("mahoadon", donHangChiTiet.getMaDonHang());
         values.put("masanpham", donHangChiTiet.getMaSanPham());
         values.put("soluong", donHangChiTiet.getSoLuong());
         values.put("dongia", donHangChiTiet.getDonGia());
