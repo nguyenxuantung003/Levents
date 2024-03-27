@@ -101,8 +101,8 @@ public class Khachang_DAO {
         values.put("sodienthoai", nguoiDung.getSodienthoai());
         values.put("diachi", nguoiDung.getDiachi());
         values.put("loaitaikhoan", nguoiDung.getLoaitaikhoan());
-        values.put("anhtaikhoan", nguoiDung.getAnhkhachhang());
-        long result = db.insert("TAIKHOAN", null, values);
+        values.put("anhkhachhang", nguoiDung.getAnhkhachhang());
+        long result = db.insert("KHACHHANG", null, values);
         return result != -1;
     }
 
