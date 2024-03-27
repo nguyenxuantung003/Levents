@@ -10,5 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_qlnguoidung" />
+    <ImageView
+        android:id="@+id/image_addND"
+        android:background="@drawable/vien_comment"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="330dp"
+        android:src="@drawable/baseline_data_saver_on_24"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
 
 </FrameLayout>
