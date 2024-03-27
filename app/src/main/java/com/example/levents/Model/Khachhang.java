@@ -26,6 +26,17 @@ public class Khachhang {
         this.loaitaikhoan = loaitaikhoan;
     }
 
+    public Khachhang(String tendangnhap, String matkhau, String hoten, String email, String diachi, String sodienthoai, String anhkhachhang, String loaitaikhoan) {
+        this.tendangnhap = tendangnhap;
+        this.matkhau = matkhau;
+        this.hoten = hoten;
+        this.email = email;
+        this.diachi = diachi;
+        this.sodienthoai = sodienthoai;
+        this.anhkhachhang = anhkhachhang;
+        this.loaitaikhoan = loaitaikhoan;
+    }
+
     public int getMakhachhang() {
         return makhachhang;
     }
