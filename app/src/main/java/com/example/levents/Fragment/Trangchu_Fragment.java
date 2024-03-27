@@ -76,6 +76,68 @@ public class Trangchu_Fragment extends Fragment {
         sanpham_intrangchu_adapter = new Sanpham_intrangchu_Adapter(sanphams, getContext());
         binding.rcvtrangchu.setAdapter(sanpham_intrangchu_adapter);
         binding.rcvNamngang.setAdapter(sanphammoiIntrangchuAdapter);
+        binding.edtimKiem.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (b) {
+                    binding.viewpage.setVisibility(View.GONE);
+                    binding.ten.setVisibility(View.GONE);
+                    binding.rcvNamngang.setVisibility(View.GONE);
+                    binding.khoangcach2.setVisibility(View.GONE);
+                    binding.khoangcach1.setVisibility(View.GONE);
+                }
+            }
+        });
+        binding.edtimKiem.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String searchText = charSequence.toString().toLowerCase(); // Chuyển đổi sang chữ thường
+                if (searchText.isEmpty()) {
+                    hasMatchingProducts = true;
+                    binding.viewpage.setVisibility(View.GONE);
+                    binding.rcvtrangchu.setVisibility(View.VISIBLE);
+                    binding.ten.setVisibility(View.GONE);
+                    binding.rcvNamngang.setVisibility(View.GONE);
+                    binding.khoangcach1.setVisibility(View.GONE);
+                    binding.khoangcach2.setVisibility(View.GONE);
+                    binding.tenkoquantrong.setText("Sản phẩm ");
+//                    binding.nen.setVisibility(View.VISIBLE);
+                    sanphams.clear();
+                    sanphams.addAll(listdem);
+                    sanpham_intrangchu_adapter.notifyDataSetChanged();
+                } else {
+                    binding.viewpage.setVisibility(View.GONE);
+                    binding.khoangcach1.setVisibility(View.GONE);
+                    binding.khoangcach2.setVisibility(View.GONE);
+                    binding.tenkoquantrong.setText("Sản phẩm không có trong giỏ hàng");
+                    sanphams.clear();
+                    for (Sanpham sp : listdem) {
+                        if (sp.getTensanpham().toLowerCase().contains(searchText)) {
+                            sanphams.add(sp);
+                        }
+                    }
+                    if (sanphams.isEmpty()) {
+                        hasMatchingProducts = false;
+                    } else {
+                        hasMatchingProducts = true;
+                    }
+                    sanpham_intrangchu_adapter.notifyDataSetChanged();
+                }
+                updateText();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        sanpham_intrangchu_adapter.notifyDataSetChanged();
+
         sanphammoiIntrangchuAdapter.setOnItemClick(new OnItemClick() {
             @Override
             public void onItemClick(int position) {

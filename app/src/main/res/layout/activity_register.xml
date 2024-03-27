@@ -28,14 +28,6 @@
             android:src="@drawable/logo_fpt_polytechnic"/>
 
     </LinearLayout>
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/anh_2"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -45,53 +37,130 @@
         android:textStyle="bold"
         android:layout_marginBottom="30dp"
         android:textColor="@color/black"/>
-    <EditText
-        android:id="@+id/edtHoTen"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_hoten"
         android:layout_width="match_parent"
-        android:background="@drawable/custom_input"
-        android:paddingStart="10dp"
-        android:layout_height="60dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/ho_ten"/>
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtHoTen"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/ho_ten"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edtSoDienThoai"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_Sodienthoai"
         android:layout_width="match_parent"
-        android:background="@drawable/custom_input"
-        android:paddingStart="10dp"
-        android:layout_height="60dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/so_dien_thoai"/>
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtSoDienThoai"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/so_dien_thoai"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/edtEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_Email"
         android:layout_width="match_parent"
-        android:background="@drawable/custom_input"
-        android:paddingStart="10dp"
-        android:layout_height="60dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/email"/>
-    <EditText
-        android:id="@+id/edtMatKhauRe"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/email"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_Tendangnhap"
         android:layout_width="match_parent"
-        android:background="@drawable/custom_input"
-        android:paddingStart="10dp"
-        android:layout_height="60dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="20dp"
-        android:hint="@string/mat_khau"/>
-    <EditText
-        android:id="@+id/edtNhapLaiMatKhau"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtTenDangNhap"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="Tên đăng nhập"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_matkhau"
         android:layout_width="match_parent"
-        android:background="@drawable/custom_input"
-        android:paddingStart="10dp"
-        android:layout_height="60dp"
-        android:textSize="14sp"
-        android:layout_marginBottom="50dp"
-        android:hint="@string/nhap_lai_mat_khau"/>
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtMatKhauRe"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/mat_khau"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_nhaplaimatkhau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtNhapLaiMatKhau"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="@string/nhap_lai_mat_khau"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_diachi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtdiachi"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="Địa Chỉ"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tipL_anhkhachhang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black">
+        <EditText
+            android:id="@+id/edtanhkhachhang"
+            android:layout_width="match_parent"
+            android:background="@drawable/custom_input"
+            android:paddingStart="10dp"
+            android:layout_height="50dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp"
+            android:hint="Đường dẫn url ảnh"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnDangKy"
