@@ -86,6 +86,7 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
         donhangDao = new Donhang_DAO(getContext());
         sanphamDao = new Sanpham_DAO(getContext());
         list = giohangDao.getDanhSachGioHangByMaNguoiDung(mand);
+        Log.d("idkh_giohang","Ma khach hang trong giohang"+mand);
         displayCart(list);
         binding.btnThanhToan.setOnClickListener(view -> {
             showDialogThanhToan();
