@@ -19,14 +19,14 @@ public class welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_welcome);
-        Handler handler= new Handler();
-handler.postDelayed(new Runnable() {
-    @Override
-    public void run() {
-        Intent intent= new Intent(welcome.this, Login_Activity.class);
-startActivity(intent);
-
-    }
-},3000);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(welcome.this, Login_Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 3000);
     }
 }
