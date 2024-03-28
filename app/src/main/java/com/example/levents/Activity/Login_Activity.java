@@ -70,6 +70,7 @@ public class Login_Activity extends AppCompatActivity {
                         if(userId == 1){
                             Intent intent1 = new Intent(getApplicationContext(), Main_Activity_Nhanvien.class);
                             startActivity(intent1);
+                            finish();
                         } else if (userId == 2){
                             Intent intent1 = new Intent(getApplicationContext(), Trangchu_Activity.class);
                             startActivity(intent1);
