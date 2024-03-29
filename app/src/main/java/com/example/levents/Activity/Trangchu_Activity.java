@@ -1,18 +1,19 @@
 package com.example.levents.Activity;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.FrameLayout;
-
 import com.example.levents.Fragment.Giohang_Fragment;
+import com.example.levents.Fragment.Lichsu_dathang_Fragment;
 import com.example.levents.Fragment.Sanpham_Fragment;
-import com.example.levents.Fragment.Thongtin_Fragment;
 import com.example.levents.Fragment.Trangchu_Fragment;
 import com.example.levents.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -38,12 +39,15 @@ public class Trangchu_Activity extends AppCompatActivity {
                 } else if(itemID == R.id.bottom_nav_giohang ){
                     Loadfragment(new Giohang_Fragment(),false);
                 } else if (itemID == R.id.bottom_nav_thongtin){
-                    Loadfragment(new Thongtin_Fragment(),false);
+                    Loadfragment(new Lichsu_dathang_Fragment(),false);
                 }
                 return true;
             }
         });
         Loadfragment(new Trangchu_Fragment(),true);
+        SharedPreferences sharedPreferences = getSharedPreferences("KHACHHANG", MODE_PRIVATE);
+        String loaiTaiKhoan = sharedPreferences.getString("loaitaikhoan", "");
+        int makhachhang = sharedPreferences.getInt("makhachhang", 0);
     }
 
     private void Loadfragment(Fragment fragment, boolean isAppInitialized){

@@ -8,4 +8,6 @@
     <string name="so_dien_thoai">Số điện thoại</string>
     <string name="email">Email</string>
     <string name="nhap_lai_mat_khau">Nhập lại mật khẩu</string>
+    <string name="open">Open nav admin</string>
+    <string name="close">Close nav admin</string>
 </resources>

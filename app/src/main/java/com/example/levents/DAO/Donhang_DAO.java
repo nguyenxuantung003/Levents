@@ -69,7 +69,7 @@ public class Donhang_DAO {
     public int insertDonHang(Hoadon donHang) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("mataikhoan", donHang.getMaTaiKhoan());
+        values.put("makhachhang", donHang.getMaTaiKhoan());
         values.put("ngaydathang", donHang.getNgayDatHang());
         values.put("tongtien", donHang.getTongTien());
         values.put("trangthai", donHang.getTrangthai());
@@ -93,10 +93,8 @@ public class Donhang_DAO {
         ArrayList<Hoadon> list = new ArrayList<>();
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         try {
-            String query = "SELECT HOADON.madonhang, KHACHHANG.mataikhoan, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai FROM HOADON JOIN KHACHHANG ON HOADON.mataikhoan = KHACHHANG.mataikhoan WHERE KHACHHANG.mataikhoan = ?";
-
+            String query = "SELECT HOADON.mahoadon, KHACHHANG.makhachhang, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai FROM HOADON JOIN KHACHHANG ON HOADON.makhachhang = KHACHHANG.makhachhang WHERE KHACHHANG.makhachhang = ?";
             Cursor cursor = database.rawQuery(query, new String[]{String.valueOf(maTaiKhoan)});
-
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 do {
@@ -108,7 +106,10 @@ public class Donhang_DAO {
                     donHang.setTongTien(cursor.getInt(4));
                     donHang.setTrangthai(cursor.getString(5));
                     list.add(donHang);
+                    Log.d("CursorData", "MaDonHang: " + cursor.getInt(0) + ", MaTaiKhoan: " + cursor.getInt(1) + ", TenTaiKhoan: " + cursor.getString(2) + ", NgayDatHang: " + cursor.getString(3) + ", TongTien: " + cursor.getInt(4) + ", TrangThai: " + cursor.getString(5));
                 } while (cursor.moveToNext());
+            } else {
+                Log.d("CursorData", "No data found for maTaiKhoan: " + maTaiKhoan);
             }
         } catch (Exception e) {
             Log.d(TAG, "Lỗi", e);

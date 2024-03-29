@@ -85,7 +85,7 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
 
                         }
                     });
-                    android.app.AlertDialog dialog1 = builder1.create();//tạo hộp thoại
+                    android.app.AlertDialog dialog1 = builder1.create();
                     dialog1.getWindow().setBackgroundDrawableResource(R.drawable.backgroud_dialog);
                     dialog1.show();
                 }
@@ -157,10 +157,6 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
                 }
             });
         });
-
-
-
-
     }
 
 

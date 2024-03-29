@@ -13,16 +13,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txttieu_de"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20sp"
-                android:layout_marginTop="20sp"
-                android:text="Levents Xin Chao"
-                android:textSize="30sp" />
-
+                <TextView
+                    android:id="@+id/txttieu_de"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginTop="20sp"
+                    android:text="Levents Xin Chao"
+                    android:textSize="30sp" />
             <EditText
                 android:id="@+id/edtim_kiem"
                 android:layout_width="match_parent"
