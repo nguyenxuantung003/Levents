@@ -1,11 +1,8 @@
 package com.example.levents.Activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,24 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.levents.Adapter.NguoiDung_Adapter;
-import com.example.levents.DAO.Khachang_DAO;
 import com.example.levents.Fragment.DoiMatKhauFragment;
 import com.example.levents.Fragment.HoaDonAdminFragment;
 import com.example.levents.Fragment.KhachHangAdminFragment;
-import com.example.levents.Fragment.QL_nguoidung_Fragment;
 import com.example.levents.Fragment.SanPhamAdminFragment;
-import com.example.levents.Fragment.ThongKeAdminFragment;
-import com.example.levents.Model.Khachhang;
+import com.example.levents.Fragment.Thongke_Fragment;
 import com.example.levents.R;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.ArrayList;
 
 public class Main_Activity_Nhanvien extends AppCompatActivity {
 
@@ -84,7 +71,7 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
                     fragment = new HoaDonAdminFragment();
                 } else if (menuItem.getItemId() == R.id.thongKe) {
                     toolbar.setTitle("Thống kê");
-                    fragment = new ThongKeAdminFragment();
+                    fragment = new Thongke_Fragment();
                 } else if (menuItem.getItemId() == R.id.doiMatKhau) {
                     toolbar.setTitle("Đổi mật khẩu");
                     fragment = new DoiMatKhauFragment();
