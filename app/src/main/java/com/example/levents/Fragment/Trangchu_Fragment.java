@@ -2,6 +2,7 @@ package com.example.levents.Fragment;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.levents.Activity.ProfileActivity;
 import com.example.levents.Adapter.Fragment_Trangchu_Adapter;
 import com.example.levents.Adapter.Giohang_Adapter;
 import com.example.levents.Adapter.Sanpham_intrangchu_Adapter;
@@ -76,6 +78,13 @@ public class Trangchu_Fragment extends Fragment {
         sanpham_intrangchu_adapter = new Sanpham_intrangchu_Adapter(sanphams, getContext());
         binding.rcvtrangchu.setAdapter(sanpham_intrangchu_adapter);
         binding.rcvNamngang.setAdapter(sanphammoiIntrangchuAdapter);
+        binding.imaprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
         binding.edtimKiem.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {

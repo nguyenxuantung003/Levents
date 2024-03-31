@@ -137,14 +137,14 @@ public class Khachang_DAO {
     public boolean updatekhachhang(Khachhang nguoiDung) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("anhtaikhoan", nguoiDung.getAnhkhachhang());
+        values.put("anhkhachhang", nguoiDung.getAnhkhachhang());
         values.put("hoten", nguoiDung.getHoten());
         values.put("tendangnhap", nguoiDung.getTendangnhap());
         values.put("sodienthoai", nguoiDung.getSodienthoai());
         values.put("matkhau", nguoiDung.getMatkhau());
         values.put("email", nguoiDung.getEmail());
         values.put("diachi", nguoiDung.getDiachi());
-        long check = db.update("KHACHHANG", values, "mataikhoan = ?", new String[]{String.valueOf(nguoiDung.getMakhachhang())});
+        long check = db.update("KHACHHANG", values, "makhachhang = ?", new String[]{String.valueOf(nguoiDung.getMakhachhang())});
         if (check == -1) {
             return false;
         } else {
@@ -166,7 +166,7 @@ public class Khachang_DAO {
         Khachhang nguoiDung = null;
 
         try {
-            Cursor cursor = db.rawQuery("SELECT * FROM KHACHHANG WHERE mataikhoan = ?", new String[]{String.valueOf(maTaiKhoan)});
+            Cursor cursor = db.rawQuery("SELECT * FROM KHACHHANG WHERE makhachhang = ?", new String[]{String.valueOf(maTaiKhoan)});
 
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();

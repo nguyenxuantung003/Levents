@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Levents"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Updatethongtin_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".Fragment.QL_SanPham"
             android:exported="false" />
         <activity
@@ -42,7 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.Trangchu_Activity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.Login_Activity"
             android:exported="false" />
