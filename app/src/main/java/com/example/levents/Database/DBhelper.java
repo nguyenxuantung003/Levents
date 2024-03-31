@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper {
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 19;
+    static int DB_VERSION = 20;
     public DBhelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -49,11 +49,11 @@ public class DBhelper extends SQLiteOpenHelper {
                 " soluong integer not null," +
                 " soluongbanra integer not null)";
         db.execSQL(sanpham);
-        db.execSQL("INSERT INTO SANPHAM VALUES(1,'Quan 01',100000,1,'Quan dep vai l','https://bizweb.dktcdn.net/100/346/633/files/thuc-an-kho-cho-cho-meo-ra-doi-nhu-the-nao.jpg?v=1553479214146',12,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(2,'Quan 2',200000,1,'Quan dep vai l','https://pethouse.com.vn/wp-content/uploads/2023/01/ezgif-5-1e317ae8fd-800x800.jpg',10,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(3,'Quan 3',300000,1,'Quan dep vai l','https://bizweb.dktcdn.net/100/091/443/products/hieuunganh-com-5e918dd032c21.png?v=1586597434450',10,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(4,'Quan 4',400000,1,'Quan dep vai l','https://www.petmart.vn/wp-content/uploads/2021/06/thuc-an-cho-cho-poodle-con-royal-canin-poodle-puppy2.jpg',10,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(5,'Quan 5',500000,1,'Quan dep vai l','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUpL9qDcvaqEL85UX1lrU8RHRkD2AAnpcWCw&usqp=CAU',0,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(1,'Quan 01',100000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/Cream_LTSOVCOA427UC0100SS24_1.jpg?v=1711360838&width=713',12,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(2,'Quan 2',200000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/STYLING_LOOK_6.1.jpg?v=1711445878&width=700',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(3,'Quan 3',300000,1,'Quan dep vai l','https://levents.asia/cdn/shop/articles/2_a2bf2df5-a15f-46e3-9282-ede9180caa57.png?v=1700221925',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(4,'Quan 4',400000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/614x614_2.jpg?v=1711343553&width=500',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(5,'Quan 5',500000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/1_31f377ce-d7cf-4bbd-8833-9836a0d7556f.jpg?v=1710482648&width=1000',0,0)");
 
 
         String giohang = "CREATE TABLE GIOHANG(" +
