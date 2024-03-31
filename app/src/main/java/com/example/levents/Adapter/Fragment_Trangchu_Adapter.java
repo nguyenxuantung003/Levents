@@ -81,8 +81,7 @@ public class Fragment_Trangchu_Adapter extends RecyclerView.Adapter<Fragment_Tra
 
     @Override
     public int getItemCount() {
-        return list.size();
-    }
+        return list.size();}
     public class ViewHolder extends RecyclerView.ViewHolder {
        ItemSanphamTrangchuBinding biding;
 
