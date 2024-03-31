@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.levents.Fragment.DoiMatKhauFragment;
 import com.example.levents.Fragment.HoaDonAdminFragment;
 import com.example.levents.Fragment.KhachHangAdminFragment;
+import com.example.levents.Fragment.QLSpham_Fragment;
 import com.example.levents.Fragment.SanPhamAdminFragment;
 import com.example.levents.Fragment.Thongke_Fragment;
 import com.example.levents.R;
@@ -62,7 +63,7 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
                 Fragment fragment = null;
                 if (menuItem.getItemId() == R.id.sanPham) {
                     toolbar.setTitle("Sản phẩm");
-                    fragment = new SanPhamAdminFragment();
+                    fragment = new QLSpham_Fragment();
                 } else if (menuItem.getItemId() == R.id.khachHang) {
                     toolbar.setTitle("Khách hàng");
                     fragment = new KhachHangAdminFragment();
