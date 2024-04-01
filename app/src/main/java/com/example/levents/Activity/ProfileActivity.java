@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
         binding.txtPLoaiTaiKhoan.setText("Loại tài khoản: " + loaitaikhoan);
         Picasso.get().load(urlAnh).into(binding.imgAvatarProfile);
         binding.btnPDangXuat.setOnClickListener(view -> {
+            finish();
             ProfileActivity.this.startActivity(new Intent(ProfileActivity.this, Login_Activity.class));
 //            getOnBackPressedDispatcher().onBackPressed();
         }
@@ -50,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                @Override
                                                public void onClick(View view) {
 //                                                   Profile.this.getOnBackPressedDispatcher().onBackPressed();
+                                                   finish();
                                                    ProfileActivity.this.startActivity(new Intent(ProfileActivity.this, Trangchu_Activity.class));
                                                }
                                            }

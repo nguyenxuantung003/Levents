@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper {
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 20;
+    static int DB_VERSION = 23;
     public DBhelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -49,11 +49,11 @@ public class DBhelper extends SQLiteOpenHelper {
                 " soluong integer not null," +
                 " soluongbanra integer not null)";
         db.execSQL(sanpham);
-        db.execSQL("INSERT INTO SANPHAM VALUES(1,'Quan 01',100000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/Cream_LTSOVCOA427UC0100SS24_1.jpg?v=1711360838&width=713',12,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(2,'Quan 2',200000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/STYLING_LOOK_6.1.jpg?v=1711445878&width=700',10,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(3,'Quan 3',300000,1,'Quan dep vai l','https://levents.asia/cdn/shop/articles/2_a2bf2df5-a15f-46e3-9282-ede9180caa57.png?v=1700221925',10,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(4,'Quan 4',400000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/614x614_2.jpg?v=1711343553&width=500',10,0)");
-        db.execSQL("INSERT INTO SANPHAM VALUES(5,'Quan 5',500000,1,'Quan dep vai l','https://levents.asia/cdn/shop/files/1_31f377ce-d7cf-4bbd-8833-9836a0d7556f.jpg?v=1710482648&width=1000',0,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(1,'Áo 1',100000,1,'Áo cốt tông','https://levents.asia/cdn/shop/files/Cream_LTSOVCOA427UC0100SS24_1.jpg?v=1711360838&width=713',12,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(2,'Bộ quần áo nữ',200000,1,'Bộ quần áo nữ','https://levents.asia/cdn/shop/files/STYLING_LOOK_6.1.jpg?v=1711445878&width=700',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(3,'Bộ quần thu đông nữ',300000,1,'Bộ thu đông nữ','https://levents.asia/cdn/shop/articles/2_a2bf2df5-a15f-46e3-9282-ede9180caa57.png?v=1700221925',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(4,'Bộ quần áo nữ',400000,1,'Bộ hè','https://levents.asia/cdn/shop/files/614x614_2.jpg?v=1711343553&width=500',10,0)");
+        db.execSQL("INSERT INTO SANPHAM VALUES(5,'Áo hoodie nữ',500000,1,'Áo ấm','https://levents.asia/cdn/shop/files/1_31f377ce-d7cf-4bbd-8833-9836a0d7556f.jpg?v=1710482648&width=1000',0,0)");
 
 
         String giohang = "CREATE TABLE GIOHANG(" +
