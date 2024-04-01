@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
                 android:layout_marginTop="20sp"
-                android:text="Levents Xin Chao"
+                android:text="Levents Xin Chào"
                 android:textSize="30sp" />
             <EditText
                 android:id="@+id/edtim_kiem"
@@ -106,7 +106,7 @@
                 android:layout_height="64dp"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="6dp"
-                android:background="@color/black"/>
+                android:src="@drawable/ic_khachhang"/>
         </RelativeLayout>
     </ScrollView>
 
