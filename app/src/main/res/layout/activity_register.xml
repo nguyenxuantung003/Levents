@@ -20,6 +20,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginEnd="200dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_back"/>
 
         <ImageView

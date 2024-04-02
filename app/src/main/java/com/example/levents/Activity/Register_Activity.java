@@ -35,7 +35,12 @@ public class Register_Activity extends AppCompatActivity {
             }
         });
 
-
+        binding.imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
     private void clickDangKy() {
         // Lấy thông tin từ các trường nhập liệu

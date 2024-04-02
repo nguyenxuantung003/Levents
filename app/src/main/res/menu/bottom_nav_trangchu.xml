@@ -11,18 +11,18 @@
         android:id="@+id/bottom_nav_sanpham"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/sanpham_icon"
+        android:icon="@drawable/ic_sanpham_admin"
         android:title="Sản phẩm" />
     <item
         android:id="@+id/bottom_nav_giohang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/giohang_icon"
+        android:icon="@drawable/ic_giohang"
         android:title="Giỏ hàng" />
     <item
         android:id="@+id/bottom_nav_thongtin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:icon="@drawable/thongtin_icon"
+        android:icon="@drawable/ic_thongtin"
         android:title="Thông tin" />
 </menu>
