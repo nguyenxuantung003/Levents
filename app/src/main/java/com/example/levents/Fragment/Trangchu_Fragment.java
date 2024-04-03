@@ -35,6 +35,7 @@ import com.example.levents.R;
 import com.example.levents.databinding.DialogChitietsanphamBinding;
 import com.example.levents.databinding.FragmentTrangchuBinding;
 import com.google.android.material.snackbar.Snackbar;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -248,12 +249,10 @@ public class Trangchu_Fragment extends Fragment {
         dialog.setContentView(chiTietSanPhamBinding.getRoot());
 
         if (sanPham != null) {
-            chiTietSanPhamBinding.txtMaSanPham.setText("Mã: " + String.valueOf(sanPham.getMasanpham()));
-            chiTietSanPhamBinding.txtTenSanPham.setText("Tên:" + sanPham.getTensanpham());
-            chiTietSanPhamBinding.txtGiaSanPham.setText("Giá: " + String.valueOf(sanPham.getGia()));
-            chiTietSanPhamBinding.txtLoaiSanPham.setText("Loại sản phẩm: " + sanPham.getTenloaisanpham());
-            chiTietSanPhamBinding.txtSoLuotBan.setText("Số lượt bán: 200");
-            chiTietSanPhamBinding.txtMoTa.setText("Mô tả: " + sanPham.getMota());
+            Picasso.get().load(sanPham.getAnhsanpham()).into(chiTietSanPhamBinding.imaSp);
+            chiTietSanPhamBinding.txtTenSanPham.setText(sanPham.getTensanpham());
+            chiTietSanPhamBinding.txtGiaSanPham.setText(String.valueOf(sanPham.getGia()));
+            chiTietSanPhamBinding.motaSanpham.setText(sanPham.getMota());
 
 
         }
