@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="THÊM SAN PHAM"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:paddingStart="30dp"
+        android:id="@+id/edt_addsanpham"
+        android:layout_marginTop="15dp"
+        android:hint="Ten san pham"
+        android:layout_width="400dp"
+        android:layout_height="40dp"/>
+    <EditText
+        android:paddingStart="30dp"
+        android:id="@+id/edt_addgiasanpham"
+        android:layout_marginTop="15dp"
+        android:hint="Gia san pham"
+        android:layout_width="400dp"
+        android:layout_height="40dp"/>
+    <EditText
+        android:paddingStart="30dp"
+        android:id="@+id/edt_addmaloai"
+        android:layout_marginTop="15dp"
+        android:hint="Gia san pham"
+        android:layout_width="400dp"
+        android:layout_height="40dp"/>
+    <EditText
+        android:paddingStart="30dp"
+        android:id="@+id/edt_addmota"
+        android:layout_marginTop="15dp"
+        android:hint="Mo ta"
+        android:layout_width="400dp"
+        android:layout_height="40dp"/>
+    <EditText
+        android:paddingStart="30dp"
+        android:id="@+id/edt_addanhsanpham"
+        android:layout_marginTop="15dp"
+        android:hint="anh san pham"
+        android:layout_width="400dp"
+        android:layout_height="40dp"/>
+    <EditText
+        android:paddingStart="30dp"
+        android:id="@+id/edt_addsoluong"
+        android:layout_marginTop="15dp"
+        android:hint="so luong"
+        android:layout_width="400dp"
+        android:layout_height="40dp"/>
+    <Button
+        android:id="@+id/bt_addSp"
+        android:layout_marginTop="15dp"
+        android:text="Thêm Khách Hàng"
+        android:layout_width="200dp"
+        android:layout_height="40dp"/>
+
+</LinearLayout>

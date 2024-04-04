@@ -43,6 +43,9 @@ public class Sanpham {
         this.anhsanpham = anhSanPham;
     }
 
+    public Sanpham(String tensanpham, String giasanpham, String maloaisanpham, String mota, String anhsanpham, int i) {
+    }
+
     public String getTenloaisanpham() {
         return tenloaisanpham;
     }
