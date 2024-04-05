@@ -82,6 +82,7 @@ public class Trangchu_Fragment extends Fragment {
         binding.imaprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getActivity().finish();
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
             }
