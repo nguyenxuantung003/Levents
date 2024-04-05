@@ -26,10 +26,6 @@ public class QLhoadon_Fragment extends Fragment {
     private Donhang_DAO donhangDao;
     private Hoadon_Adapter hoadonAdapter;
     Chitiethoadon_DAO chitiethoadonDao;
-
-    public QLhoadon_Fragment() {
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,7 +41,6 @@ public class QLhoadon_Fragment extends Fragment {
             public void onItemClick(int position) {
                 Hoadon donHang = list.get(position);
                 int maDonHang = donHang.getMaDonHang();
-
                 Bundle bundle = new Bundle();
                 bundle.putInt("maDonHang", maDonHang);
                 Hoadonchitiet_Fragment hoadonchitietFragment = new Hoadonchitiet_Fragment();
@@ -53,11 +48,12 @@ public class QLhoadon_Fragment extends Fragment {
                 FragmentManager fragmentManager = getParentFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
-                fragmentTransaction.replace(R.id.framelayout_trangchu, hoadonchitietFragment );
+                fragmentTransaction.replace(R.id.frameLayout, hoadonchitietFragment );
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
         });
         return binding.getRoot();
     }
+    
 }
