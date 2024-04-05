@@ -48,10 +48,9 @@ public class Sanpham_Adapter extends RecyclerView.Adapter<Sanpham_Adapter.ViewHo
     public void onBindViewHolder(@NonNull Sanpham_Adapter.ViewHolder holder, int position) {
         Sanpham sanpham = list.get(position);
         Picasso.get().load(list.get(position).getAnhsanpham()).into(holder.binding.imgItemAnhSanPham);
-        holder.binding.txtTenSanPham.setText("Ten sp: " + String.valueOf(list.get(position).getTensanpham()));
-        holder.binding.txtGiaSanPham.setText("Gia: "+ String.valueOf(list.get(position).getGia()));
-        holder.binding.txtSoluong.setText("So luong: "+String.valueOf(list.get(position).getSoluong()));
-        holder.binding.txtMoTa.setText("Mo ta: "+list.get(position).getMota());
+        holder.binding.txtTenSanPham.setText(String.valueOf(list.get(position).getTensanpham()));
+        holder.binding.txtGiaSanPham.setText(String.valueOf(list.get(position).getGia()) + "VND");
+        holder.binding.txtSoluong.setText("Số lượng: "+String.valueOf(list.get(position).getSoluong()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

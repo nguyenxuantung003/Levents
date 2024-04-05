@@ -108,7 +108,6 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
         builder.setView(thanhToanBinding.getRoot());
         AlertDialog dialog = builder.create();
         dialog.show();
-
         //Thực hiện chức năng thanh toán ấn nút
         thanhToanBinding.btnThanhToan.setOnClickListener(view -> {
             SharedPreferences sharedPreferences = getContext().getSharedPreferences("KHACHHANG", MODE_PRIVATE);

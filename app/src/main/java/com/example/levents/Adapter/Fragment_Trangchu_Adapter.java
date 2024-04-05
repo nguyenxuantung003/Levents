@@ -65,11 +65,11 @@ public class Fragment_Trangchu_Adapter extends RecyclerView.Adapter<Fragment_Tra
             }
         });
         if (list.get(position).getSoluong() == 0) {
-            holder.biding.btnThemvaogio.setVisibility(View.GONE);
+            holder.biding.btnThemVaoGio.setVisibility(View.GONE);
         } else {
-            holder.biding.btnThemvaogio.setVisibility(View.VISIBLE);
+            holder.biding.btnThemVaoGio.setVisibility(View.VISIBLE);
         }
-        holder.biding.btnThemvaogio.setOnClickListener(new View.OnClickListener() {
+        holder.biding.btnThemVaoGio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (onAddToCart != null) {

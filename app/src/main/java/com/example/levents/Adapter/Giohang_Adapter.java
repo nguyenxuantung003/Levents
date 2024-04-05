@@ -41,7 +41,7 @@ public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Giohang giohang = list.get(position);
         // Hiển thị thông tin sản phẩm
-        holder.binding.txtgia.setText(String.valueOf(giohang.getSoLuongMua() * giohang.getGiaSanPham()));
+        holder.binding.txtgia.setText(String.valueOf(giohang.getSoLuongMua() * giohang.getGiaSanPham()) + "VND");
         holder.binding.txtsoluong.setText(String.valueOf(giohang.getSoLuongMua()));
         holder.binding.txttensp.setText(giohang.getTenSanPham());
         Picasso.get().load(list.get(position).getAnhSanPham()).into(holder.binding.imganhsp);
