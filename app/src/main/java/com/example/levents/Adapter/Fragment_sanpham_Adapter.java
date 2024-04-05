@@ -59,9 +59,8 @@ public class Fragment_sanpham_Adapter extends RecyclerView.Adapter<Fragment_sanp
         Sanpham sanpham = sanphamArrayList.get(position);
         Picasso.get().load(sanpham.getAnhsanpham()).into(holder.binding.imgItemAnhSanPham);
         holder.binding.txtTenSanPham.setText(sanpham.getTensanpham());
-        holder.binding.txtGiaSanPham.setText("Giá bán: " + sanpham.getGia());
+        holder.binding.txtGiaSanPham.setText(sanpham.getGia() + "VND");
         holder.binding.txtSoluong.setText("Số lượng: "+ sanpham.getSoluong());
-        holder.binding.txtMoTa.setText(sanpham.getMota());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -59,7 +59,7 @@ public class Sanpham_intrangchu_Adapter extends RecyclerView.Adapter<Sanpham_int
     public void onBindViewHolder(@NonNull Sanpham_intrangchu_Adapter.ViewHolder holder,int position) {
         Sanpham sanpham = list.get(position);
         holder.binding.txtTenSanPham.setText(sanpham.getTensanpham());
-        holder.binding.txtGiaSanPham.setText(String.valueOf(sanpham.getGia()));
+        holder.binding.txtGiaSanPham.setText(String.valueOf(sanpham.getGia()) + " VND");
         Picasso.get().load(sanpham.getAnhsanpham()).into(holder.binding.imgItemAnhSanPham);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,16 +67,16 @@ public class Sanpham_intrangchu_Adapter extends RecyclerView.Adapter<Sanpham_int
                 if (onItemClick != null) {
                     onItemClick.onItemClick(holder.getAdapterPosition());
                     if (list.get(position).getSoluong() == 0) {
-                        holder.binding.btnThemvaogio.setVisibility(View.GONE);
+                        holder.binding.btnThemVaoGio.setVisibility(View.GONE);
                     } else {
-                        holder.binding.btnThemvaogio.setVisibility(View.VISIBLE);
+                        holder.binding.btnThemVaoGio.setVisibility(View.VISIBLE);
                     }
 
                 }
 
             }
         });
-        holder.binding.btnThemvaogio.setOnClickListener(new View.OnClickListener() {
+        holder.binding.btnThemVaoGio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (onAddToCart != null) {
