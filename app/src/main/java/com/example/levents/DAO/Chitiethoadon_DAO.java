@@ -22,7 +22,7 @@ public class Chitiethoadon_DAO {
         ArrayList<Hoadonchitiet> listChiTiet = new ArrayList<>();
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         try {
-            String query = "SELECT CHITIETHOADON.machitietdonhang,CHITIETHOADON.masanpham,SANPHAM.tensanpham,HOADON.madonhang,CHITIETHOADON.soluong,CHITIETHOADON.dongia, CHITIETHOADON.thanhtien,SANPHAM.anhsanpham FROM CHITIETHOADON INNER JOIN HOADON ON CHITIETHOADON.madonhang = HOADON.madonhang INNER JOIN SANPHAM ON CHITIETHOADON.masanpham = SANPHAM.masanpham WHERE HOADON.madonhang = ?";
+            String query = "SELECT CHITIETHOADON.machitiethoadon,CHITIETHOADON.masanpham,SANPHAM.tensanpham,HOADON.mahoadon,CHITIETHOADON.soluong,CHITIETHOADON.dongia, CHITIETHOADON.thanhtien,SANPHAM.anhsanpham FROM CHITIETHOADON INNER JOIN HOADON ON CHITIETHOADON.mahoadon = HOADON.mahoadon INNER JOIN SANPHAM ON CHITIETHOADON.masanpham = SANPHAM.masanpham WHERE HOADON.mahoadon = ?";
 
             Cursor cursor = database.rawQuery(query, new String[]{String.valueOf(maDonHang)});
 

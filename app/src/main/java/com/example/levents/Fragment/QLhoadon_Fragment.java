@@ -55,5 +55,5 @@ public class QLhoadon_Fragment extends Fragment {
         });
         return binding.getRoot();
     }
-    
+
 }
