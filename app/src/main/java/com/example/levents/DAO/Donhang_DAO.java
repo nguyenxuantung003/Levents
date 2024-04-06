@@ -23,8 +23,8 @@ public class Donhang_DAO {
         ArrayList<Hoadon> list = new ArrayList<>();
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         try {
-            Cursor cursor = database.rawQuery("SELECT HOADON.madonhang, KHACHHANG.mataikhoan, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai " +
-                    "FROM HOADON,KHACHHANG WHERE HOADON.mataikhoan = KHACHHANG.mataikhoan", null);
+            Cursor cursor = database.rawQuery("SELECT HOADON.mahoadon, KHACHHANG.makhachhang, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai " +
+                    "FROM HOADON,KHACHHANG WHERE HOADON.makhachhang = KHACHHANG.makhachhang", null);
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 do {
@@ -50,7 +50,7 @@ public class Donhang_DAO {
         if (cursor.getCount() != 0) {
             return -1;
         }
-        long check = db.delete("HOADON", "madonhang = ?", new String[]{String.valueOf(madonhang)});
+        long check = db.delete("HOADON", "mahoadon = ?", new String[]{String.valueOf(madonhang)});
         if (check == -1) {
             return 0;
         } else {
@@ -62,7 +62,7 @@ public class Donhang_DAO {
         ContentValues values = new ContentValues();
         values.put("mataikhoan", donHang.getMaTaiKhoan());
         values.put("trangthai", donHang.getTrangthai());
-        long check = sqLiteDatabase.update("HOADON", values, "madonhang = ?", new String[]{String.valueOf(donHang.getMaDonHang())});
+        long check = sqLiteDatabase.update("HOADON", values, "mahoadon = ?", new String[]{String.valueOf(donHang.getMaDonHang())});
         return check > 0;
 
     }

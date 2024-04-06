@@ -10,12 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.levents.Fragment.DoiMatKhauFragment;
-import com.example.levents.Fragment.HoaDonAdminFragment;
-import com.example.levents.Fragment.KhachHangAdminFragment;
 import com.example.levents.Fragment.QLSpham_Fragment;
-import com.example.levents.Fragment.SanPhamAdminFragment;
+import com.example.levents.Fragment.QL_nguoidung_Fragment;
+import com.example.levents.Fragment.QLhoadon_Fragment;
 import com.example.levents.Fragment.Thongke_Fragment;
 import com.example.levents.R;
 import com.google.android.material.navigation.NavigationView;
@@ -31,18 +32,9 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_nhanvien);
-//        QL_nguoidung_Fragment fragment = new QL_nguoidung_Fragment();
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction transaction = fragmentManager.beginTransaction();
-//        transaction.replace(R.id.layout_content, fragment);
-//        transaction.addToBackStack(null);
-//        transaction.commit();
-
         drawerLayout = findViewById(R.id.drawerLayout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
-
-        // set toolbar
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -66,10 +58,10 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
                     fragment = new QLSpham_Fragment();
                 } else if (menuItem.getItemId() == R.id.khachHang) {
                     toolbar.setTitle("Khách hàng");
-                    fragment = new KhachHangAdminFragment();
+                    fragment = new QL_nguoidung_Fragment();
                 } else if (menuItem.getItemId() == R.id.hoaDon) {
                     toolbar.setTitle("Hóa đơn");
-                    fragment = new HoaDonAdminFragment();
+                    fragment = new QLhoadon_Fragment();
                 } else if (menuItem.getItemId() == R.id.thongKe) {
                     toolbar.setTitle("Thống kê");
                     fragment = new Thongke_Fragment();
@@ -86,7 +78,19 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
                 return true;
             }
         });
+        Loadfragment(new QLSpham_Fragment(),true);
 
+    }
+    private void Loadfragment(Fragment fragment, boolean isAppInitialized){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (isAppInitialized){
+            fragmentTransaction.add(R.id.frameLayout,fragment);
+        } else {
+            fragmentTransaction.replace(R.id.frameLayout, fragment);
+        }
+
+        fragmentTransaction.commit();
     }
 
 }
