@@ -73,6 +73,23 @@ public class Sanpham_DAO {
             return true;
         }
     }
+
+    public boolean insert2(String tensanpham, int gia, String mota, String anhsanpham, int soluong) {
+        SQLiteDatabase db = dBhelper.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tensanpham", tensanpham);
+        values.put("gia", gia);
+        values.put("mota", mota);
+        values.put("anhsanpham", anhsanpham);
+        values.put("soluong", soluong);
+        values.put("soluongbanra",0);
+        long check = db.insert("SANPHAM", null, values);
+        if (check == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     public boolean update(int masanpham, String tensanpham, int gia, int maloaisanpham, String mota, String anhsanpham, int soluong) {
         SQLiteDatabase db = dBhelper.getWritableDatabase();
         ContentValues values = new ContentValues();

@@ -43,6 +43,15 @@ public class Sanpham {
         this.anhsanpham = anhSanPham;
     }
 
+    public Sanpham(String tensanpham, int gia, String mota, String anhsanpham, int soluong, int soluotbanra) {
+        this.tensanpham = tensanpham;
+        this.gia = gia;
+        this.mota = mota;
+        this.anhsanpham = anhsanpham;
+        this.soluong = soluong;
+        this.soluotbanra = soluotbanra;
+    }
+
     public String getTenloaisanpham() {
         return tenloaisanpham;
     }
