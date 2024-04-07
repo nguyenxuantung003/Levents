@@ -22,7 +22,6 @@ import java.util.ArrayList;
 public class Hoadonchitiet_Fragment extends Fragment {
         FragmentHoadonchitietBinding binding;
         private ArrayList<Hoadonchitiet> list = new ArrayList<>();
-        private Hoadonchitiet_Fragment hoadonchitietFragment;
         private Hoadonchitiet_Adapter hoadonchitietAdapter;
         private Chitiethoadon_DAO chitiethoadonDao;
 
@@ -38,13 +37,12 @@ public class Hoadonchitiet_Fragment extends Fragment {
         chitiethoadonDao = new Chitiethoadon_DAO(getContext());
         Bundle bundle = getArguments();
         if (bundle != null) {
-            int maDonHang = bundle.getInt("maDonHang", 0);
+            int maDonHang = bundle.getInt("mahoadon", 0);
             Log.d("Mã đơn hàng", String.valueOf(maDonHang));
             if (maDonHang != 0) {
                 list = chitiethoadonDao.getChiTietDonHangByMaDonHang(maDonHang);
                 hoadonchitietAdapter = new Hoadonchitiet_Adapter(list, getContext());
                 binding.rcvDonHangChiTiet.setAdapter(hoadonchitietAdapter);
-
             }
         }
         binding.btnback.setOnClickListener(new View.OnClickListener() {

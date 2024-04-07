@@ -60,7 +60,7 @@ public class Donhang_DAO {
     public boolean updateDonHang(Hoadon donHang) {
         SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("mataikhoan", donHang.getMaTaiKhoan());
+        values.put("makhachhang", donHang.getMaTaiKhoan());
         values.put("trangthai", donHang.getTrangthai());
         long check = sqLiteDatabase.update("HOADON", values, "mahoadon = ?", new String[]{String.valueOf(donHang.getMaDonHang())});
         return check > 0;
