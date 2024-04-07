@@ -42,7 +42,7 @@ public class QLhoadon_Fragment extends Fragment {
                 Hoadon donHang = list.get(position);
                 int maDonHang = donHang.getMaDonHang();
                 Bundle bundle = new Bundle();
-                bundle.putInt("maDonHang", maDonHang);
+                bundle.putInt("mahoadon", maDonHang);
                 Hoadonchitiet_Fragment hoadonchitietFragment = new Hoadonchitiet_Fragment();
                 hoadonchitietFragment.setArguments(bundle);
                 FragmentManager fragmentManager = getParentFragmentManager();

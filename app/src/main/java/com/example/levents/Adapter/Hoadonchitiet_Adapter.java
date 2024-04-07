@@ -29,7 +29,7 @@ public class Hoadonchitiet_Adapter extends RecyclerView.Adapter<Hoadonchitiet_Ad
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ItemChitiethoadonBinding binding = ItemChitiethoadonBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return null;
+        return new Hoadonchitiet_Adapter.ViewHolder(binding);
     }
 
     @Override
