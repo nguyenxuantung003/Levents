@@ -2,32 +2,27 @@ package com.example.levents.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.levents.Adapter.QLSP_Adapter;
 import com.example.levents.Adapter.Sanpham_Adapter;
 import com.example.levents.DAO.QLSanPham_DAO;
 import com.example.levents.DAO.Sanpham_DAO;
-import com.example.levents.Model.Loaisanpham;
-import com.example.levents.Model.QLsanpham;
 import com.example.levents.Model.Sanpham;
 import com.example.levents.R;
 import com.example.levents.databinding.FragmentQLSphamBinding;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 
 public class QLSpham_Fragment extends Fragment {
-
     View view;
     RecyclerView recyclerView;
 
@@ -37,6 +32,7 @@ public class QLSpham_Fragment extends Fragment {
     Sanpham_DAO sanphamDao;
     ImageView addSP;
     Sanpham_Adapter sanphamAdapter;
+    QLSP_Adapter qlspAdapter;
 
     public QLSpham_Fragment() {
         // Required empty public constructor
@@ -71,8 +67,8 @@ public class QLSpham_Fragment extends Fragment {
     private void LoaddataSanpham() {
         sanphamDao = new Sanpham_DAO(getContext().getApplicationContext());
         sanphamlist = sanphamDao.getsanphamall();
-        sanphamAdapter = new Sanpham_Adapter(sanphamlist, getContext(),sanphamDao);
-        recyclerView.setAdapter(sanphamAdapter);
+        qlspAdapter = new QLSP_Adapter(sanphamlist, getContext());
+        recyclerView.setAdapter(qlspAdapter);
     }
 
     private void ShowAddDialog() {
