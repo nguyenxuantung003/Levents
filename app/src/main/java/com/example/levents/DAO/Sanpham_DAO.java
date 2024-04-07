@@ -91,7 +91,7 @@ public class Sanpham_DAO {
     }
     public int delete(int masanpham) {
         SQLiteDatabase db = dBhelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from CHITIETDONHANG where masanpham = ?", new String[]{String.valueOf(masanpham)});
+        Cursor cursor = db.rawQuery("select * from CHITIETHOADON where masanpham = ?", new String[]{String.valueOf(masanpham)});
         if (cursor.getCount() != 0) {
             return -1;
         }
