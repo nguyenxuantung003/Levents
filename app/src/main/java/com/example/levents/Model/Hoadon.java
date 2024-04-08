@@ -4,10 +4,47 @@ public class Hoadon {
     private int maDonHang;
     private int maTaiKhoan;
     private String tenTaiKhoan;
+    private int manhanvien;
+
+    public Hoadon(int manhanvien) {
+        this.manhanvien = manhanvien;
+    }
+
+    public int getManhanvien() {
+        return manhanvien;
+    }
+
+    public void setManhanvien(int manhanvien) {
+        this.manhanvien = manhanvien;
+    }
 
     private String ngayDatHang;
     private int tongTien;
     private String trangthai;
+    private String tennhanvien;
+
+    public Hoadon(String tennhanvien) {
+        this.tennhanvien = tennhanvien;
+    }
+
+    public String getTennhanvien() {
+        return tennhanvien;
+    }
+
+    public Hoadon(int maDonHang, int maTaiKhoan, String tenTaiKhoan, int manhanvien, String ngayDatHang, int tongTien, String trangthai, String tennhanvien) {
+        this.maDonHang = maDonHang;
+        this.maTaiKhoan = maTaiKhoan;
+        this.tenTaiKhoan = tenTaiKhoan;
+        this.manhanvien = manhanvien;
+        this.ngayDatHang = ngayDatHang;
+        this.tongTien = tongTien;
+        this.trangthai = trangthai;
+        this.tennhanvien = tennhanvien;
+    }
+
+    public void setTennhanvien(String tennhanvien) {
+        this.tennhanvien = tennhanvien;
+    }
 
     public Hoadon() {
     }

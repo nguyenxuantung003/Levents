@@ -33,7 +33,7 @@ public class QLhoadon_Fragment extends Fragment {
         donhangDao = new Donhang_DAO(getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         binding.rcvHoadon.setLayoutManager(layoutManager);
-        list = donhangDao.getDsDonHang();
+        list = donhangDao.getDsDonHang2();
         hoadonAdapter = new Hoadon_Adapter(list,getContext());
         binding.rcvHoadon.setAdapter(hoadonAdapter);
         hoadonAdapter.setOnItemClick(new OnItemClick() {

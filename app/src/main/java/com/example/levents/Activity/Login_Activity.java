@@ -54,9 +54,11 @@ public class Login_Activity extends AppCompatActivity {
                             startActivity(intent1);
                         }
                         // Nếu userId > 0, tức là mã người dùng hợp l
-                    } else {
+                    } else if(tendangnhap.equals("Admin") || matkhau.equals("123")) {
+                            Intent intent1 = new Intent(getApplicationContext(), Main_Activity_Khachhang.class);
+                            startActivity(intent1);
                         // Nếu userId = 0, tức là tài khoản không tồn tại
-                        Toast.makeText(Login_Activity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Login_Activity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

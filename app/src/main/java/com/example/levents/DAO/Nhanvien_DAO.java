@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,6 +19,17 @@ public class Nhanvien_DAO {
     DBhelper dBhelper;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
+    public Nhanvien_DAO(Context context) {
+        this.dBhelper = new DBhelper(context);
+        if (context != null) {
+            sharedPreferences = context.getSharedPreferences("NHANVIEN", context.MODE_PRIVATE);
+        } else {
+            // Xử lý khi context là null, có thể thông báo lỗi hoặc thực hiện xử lý phù hợp
+            Log.e(TAG, "Context is null in NguoiDungDao constructor");
+        }
+    }
+
     public boolean insertNhanVien(String tenDangNhap, String matKhau, String hoTen, String email, String soDienThoai, String diaChi, String loaiTaiKhoan, String anhNhanVien) {
         SQLiteDatabase db = dBhelper.getWritableDatabase();
         boolean success = false;
@@ -105,5 +117,19 @@ public class Nhanvien_DAO {
             db.close();
         }
         return success;
+    }
+    public boolean checkDangKy(Nhanvien nguoiDung) {
+        SQLiteDatabase db = dBhelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tendangnhap", nguoiDung.getTendangnhap());
+        values.put("matkhau", nguoiDung.getMatkhau());
+        values.put("hoten", nguoiDung.getHoten());
+        values.put("email", nguoiDung.getEmail());
+        values.put("sodienthoai", nguoiDung.getSodienthoai());
+        values.put("diachi", nguoiDung.getDiachi());
+        values.put("loaitaikhoan", nguoiDung.getLoaitaikhoan());
+        values.put("anhkhachhang", nguoiDung.getAnhnhanvien());
+        long result = db.insert("NHANVIEN", null, values);
+        return result != -1;
     }
 }
