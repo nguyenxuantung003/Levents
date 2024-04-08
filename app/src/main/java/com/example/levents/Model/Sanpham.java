@@ -33,14 +33,24 @@ public class Sanpham {
         this.soluotbanra =soLuotBanRa;
     }
 
-    public Sanpham(int masanpham, String tensanpham, int gia, int maloaisanpham, String tenloaisanpham, String mota, String anhSanPham) {
+    public Sanpham(int masanpham, String tensanpham, int gia, String mota, String anhSanPham,int soluong,int soluotbanra) {
         this.masanpham = masanpham;
         this.tensanpham = tensanpham;
         this.gia = gia;
-        this.maloaisanpham = maloaisanpham;
-        this.tenloaisanpham = tenloaisanpham;
         this.mota = mota;
         this.anhsanpham = anhSanPham;
+        this.soluong = soluong;
+        this.soluotbanra = soluotbanra;
+    }
+
+    public Sanpham(String tensanpham, int giasanpham, int soluongsanpham, String motasanpham, String anhsanpham, int soluongbanra) {
+        this.tensanpham = tensanpham;
+        this.gia = giasanpham;
+        this.soluong = soluongsanpham;
+        this.mota = motasanpham;
+        this.anhsanpham = anhsanpham;
+        this.soluotbanra = soluongbanra;
+
     }
 
     public String getTenloaisanpham() {

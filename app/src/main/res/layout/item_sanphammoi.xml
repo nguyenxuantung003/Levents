@@ -38,7 +38,8 @@ android:layout_gravity="center"
 android:layout_marginTop="5sp"
 android:text="300.000"
 android:gravity="center"
-android:textColor="@color/red"
+android:textColor="@color/green"
+    android:textStyle="bold"
 android:textSize="20sp" />
 
     </LinearLayout>

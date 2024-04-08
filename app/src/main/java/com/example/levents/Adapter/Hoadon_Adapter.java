@@ -25,7 +25,9 @@ import com.example.levents.databinding.DialogTrangthaihoadonBinding;
 import com.example.levents.databinding.DialogXoahoadonBinding;
 import com.example.levents.databinding.ItemQlHoadonBinding;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHolder> {
 
@@ -53,12 +55,15 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull Hoadon_Adapter.ViewHolder holder, int position) {
         Hoadon hoadon = list.get(position);
+        Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        String giaFormatted = numberFormat.format(hoadon.getTongTien());
         holder.binding.txtMdonhang.setText("Mã đơn hàng: " + String.valueOf(hoadon.getMaDonHang()));
         holder.binding.txtMnguoidung.setText("Mã người dung: " + String.valueOf(hoadon.getMaTaiKhoan()));
         holder.binding.txtDHTennguoidung.setText("Tên người dùng: " + hoadon.getTenTaiKhoan());
         holder.binding.txtNgayDat.setText("Ngày đặt hàng: " + hoadon.getNgayDatHang());
         holder.binding.txtTrangThai.setText("Trạng thái: " + hoadon.getTrangthai());
-        holder.binding.txtTongTien.setText("Tổng tiền: " + String.valueOf(hoadon.getTongTien()));
+        holder.binding.txtTongTien.setText("Tổng tiền: " + String.valueOf(giaFormatted));
         String tenNhanVien = hoadon.getTennhanvien();
         if (tenNhanVien != null) {
             holder.binding.txtNvXacnhan.setText("Nhân viên xác nhận: " + tenNhanVien);

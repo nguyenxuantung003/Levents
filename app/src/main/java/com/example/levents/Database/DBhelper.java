@@ -43,7 +43,6 @@ public class DBhelper extends SQLiteOpenHelper {
                 " masanpham integer primary key autoincrement," +
                 " tensanpham text not null," +
                 " gia integer not null," +
-                " maloaisanpham integer REFERENCES LOAISANPHAM(maloaisanpham)," +
                 " mota text not null," +
                 " anhsanpham text not null," +
                 " soluong integer not null," +

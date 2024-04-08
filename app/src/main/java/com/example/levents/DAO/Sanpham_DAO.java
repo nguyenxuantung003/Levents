@@ -35,11 +35,11 @@ public class Sanpham_DAO {
     public ArrayList<Sanpham> getsanphamall() {
         ArrayList<Sanpham> list = new ArrayList();
         SQLiteDatabase database = dBhelper.getReadableDatabase();
-        Cursor cursor = database.rawQuery("select sp.masanpham, sp.tensanpham, sp.gia, lsp.maloaisanpham,lsp.tenloaisanpham,sp.mota,sp.anhsanpham,sp.soluong, sp.soluongbanra from SANPHAM sp, LOAISANPHAM lsp where sp.maloaisanpham = lsp.maLoaisanpham", null);
+        Cursor cursor = database.rawQuery("select sp.masanpham, sp.tensanpham, sp.gia,sp.mota,sp.anhsanpham,sp.soluong, sp.soluongbanra from SANPHAM sp", null);
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                list.add(new Sanpham(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getInt(7),cursor.getInt(8)));
+                list.add(new Sanpham(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getString(3), cursor.getString(4), cursor.getInt(5), cursor.getInt(6)));
             } while (cursor.moveToNext());
         }
         return list;
@@ -56,12 +56,11 @@ public class Sanpham_DAO {
         }
         return list;
     }
-    public boolean insert(String tensanpham, int gia, int maloaisanpham, String mota, String anhsanpham, int soluong) {
+    public boolean insert(String tensanpham, int gia, String mota, String anhsanpham, int soluong) {
         SQLiteDatabase db = dBhelper.getReadableDatabase();
         ContentValues values = new ContentValues();
         values.put("tensanpham", tensanpham);
         values.put("gia", gia);
-        values.put("maloaisanpham", maloaisanpham);
         values.put("mota", mota);
         values.put("anhsanpham", anhsanpham);
         values.put("soluong", soluong);
@@ -291,10 +290,10 @@ public class Sanpham_DAO {
             ContentValues values = new ContentValues();
             values.put("tensanpham", sanpham.getTensanpham());
             values.put("gia", sanpham.getGia());
-            values.put("maloaisanpham", sanpham.getMaloaisanpham());
             values.put("mota", sanpham.getMota());
             values.put("anhsanpham", sanpham.getAnhsanpham());
             values.put("soluong", sanpham.getSoluong());
+            values.put("soluongbanra",sanpham.getSoluotbanra());
 
             long newRowId = db.insert("SANPHAM", null, values);
             success = newRowId != -1;

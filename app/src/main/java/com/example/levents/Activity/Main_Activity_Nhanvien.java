@@ -14,7 +14,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.levents.Fragment.DS_hoadon_Fragment;
-import com.example.levents.Fragment.DoiMatKhauFragment;
 import com.example.levents.Fragment.QLSpham_Fragment;
 import com.example.levents.Fragment.QL_nguoidung_Fragment;
 import com.example.levents.Fragment.TK_hoadon_nv_Fragment;
@@ -60,15 +59,12 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
                     toolbar.setTitle("Khách hàng");
                     fragment = new QL_nguoidung_Fragment();
                 } else if (menuItem.getItemId() == R.id.hoaDon) {
-                    toolbar.setTitle("Hóa đơn");
+                    toolbar.setTitle("Hóa đơn mới");
                     fragment = new DS_hoadon_Fragment();
                 } else if (menuItem.getItemId() == R.id.thongKe) {
-                    toolbar.setTitle("Thống kê");
+                    toolbar.setTitle("Lịch sử hoá đơn của bạn");
                     fragment = new TK_hoadon_nv_Fragment();
-                } else if (menuItem.getItemId() == R.id.doiMatKhau) {
-                    toolbar.setTitle("Đổi mật khẩu");
-                    fragment = new DoiMatKhauFragment();
-                } else if (menuItem.getItemId() == R.id.dangXuat) {
+                }  else if (menuItem.getItemId() == R.id.dangXuat) {
                     finish();
                     startActivity(new Intent(Main_Activity_Nhanvien.this, Login_Activity.class));
                 }

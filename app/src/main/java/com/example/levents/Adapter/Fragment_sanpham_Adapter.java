@@ -16,7 +16,9 @@ import com.example.levents.Model.Sanpham;
 import com.example.levents.databinding.ItemSanphamBinding;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Fragment_sanpham_Adapter extends RecyclerView.Adapter<Fragment_sanpham_Adapter.ViewHolder> {
 
@@ -56,10 +58,13 @@ public class Fragment_sanpham_Adapter extends RecyclerView.Adapter<Fragment_sanp
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
         Sanpham sanpham = sanphamArrayList.get(position);
+        String giaFormatted = numberFormat.format(sanpham.getGia());
         Picasso.get().load(sanpham.getAnhsanpham()).into(holder.binding.imgItemAnhSanPham);
         holder.binding.txtTenSanPham.setText(sanpham.getTensanpham());
-        holder.binding.txtGiaSanPham.setText(sanpham.getGia() + "VND");
+        holder.binding.txtGiaSanPham.setText(giaFormatted);
         holder.binding.txtSoluong.setText("Số lượng: "+ sanpham.getSoluong());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
