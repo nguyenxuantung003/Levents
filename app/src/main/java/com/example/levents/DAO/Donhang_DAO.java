@@ -155,6 +155,71 @@ public class Donhang_DAO {
         }
         return list;
     }
+    public ArrayList<Hoadon> getDsDonHangTheoNhanVien(int manhanvien) {
+        ArrayList<Hoadon> list = new ArrayList<>();
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        try {
+            String query = "SELECT HOADON.mahoadon, KHACHHANG.makhachhang, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai, NHANVIEN.hoten " +
+                    "FROM HOADON " +
+                    "INNER JOIN KHACHHANG ON HOADON.makhachhang = KHACHHANG.makhachhang " +
+                    "LEFT JOIN NHANVIEN ON HOADON.manhanvien = NHANVIEN.manhanvien " +
+                    "WHERE HOADON.manhanvien = ?";
+            Cursor cursor = database.rawQuery(query, new String[]{String.valueOf(manhanvien)});
+
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                do {
+                    Hoadon donHang = new Hoadon();
+                    donHang.setMaDonHang(cursor.getInt(0));
+                    donHang.setMaTaiKhoan(cursor.getInt(1));
+                    donHang.setTenTaiKhoan(cursor.getString(2));
+                    donHang.setNgayDatHang(cursor.getString(3));
+                    donHang.setTongTien(cursor.getInt(4));
+                    donHang.setTrangthai(cursor.getString(5));
+                    String tenNhanVien = cursor.getString(6); // Lấy tên nhân viên từ cột thứ 7
+                    donHang.setTennhanvien(tenNhanVien != null ? tenNhanVien : "Không có thông tin"); // Đảm bảo không null
+                    list.add(donHang);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Log.d(ContentValues.TAG, "Lỗi", e);
+        }
+        return list;
+    }
+    public ArrayList<Hoadon> getDsDonHangTheoTrangThai(String trangThai) {
+        ArrayList<Hoadon> list = new ArrayList<>();
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
+        try {
+            String query = "SELECT HOADON.mahoadon, KHACHHANG.makhachhang, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai, NHANVIEN.hoten " +
+                    "FROM HOADON " +
+                    "INNER JOIN KHACHHANG ON HOADON.makhachhang = KHACHHANG.makhachhang " +
+                    "LEFT JOIN NHANVIEN ON HOADON.manhanvien = NHANVIEN.manhanvien " +
+                    "WHERE HOADON.trangthai = ?";
+            Cursor cursor = database.rawQuery(query, new String[]{trangThai});
+
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                do {
+                    Hoadon donHang = new Hoadon();
+                    donHang.setMaDonHang(cursor.getInt(0));
+                    donHang.setMaTaiKhoan(cursor.getInt(1));
+                    donHang.setTenTaiKhoan(cursor.getString(2));
+                    donHang.setNgayDatHang(cursor.getString(3));
+                    donHang.setTongTien(cursor.getInt(4));
+                    donHang.setTrangthai(cursor.getString(5));
+                    String tenNhanVien = cursor.getString(6); // Lấy tên nhân viên từ cột thứ 7
+                    donHang.setTennhanvien(tenNhanVien != null ? tenNhanVien : "Không có thông tin"); // Đảm bảo không null
+                    list.add(donHang);
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Log.d(TAG, "Lỗi", e);
+        }
+        return list;
+    }
+
 
 
 }

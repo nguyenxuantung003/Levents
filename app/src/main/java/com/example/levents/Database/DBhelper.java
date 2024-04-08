@@ -89,7 +89,6 @@ public class DBhelper extends SQLiteOpenHelper {
                 " masanpham integer REFERENCES SANPHAM(masanpham)," +
                 "soluong integer not null," +
                 " dongia integer not null," +
-
                 " thanhtien integer not null)";
         db.execSQL(chitiethoadon);
         db.execSQL("INSERT INTO CHITIETHOADON VALUES(1,2,5,5,20,20)");
