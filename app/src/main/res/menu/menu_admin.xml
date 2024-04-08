@@ -11,15 +11,11 @@
     <item
         android:id="@+id/hoaDon"
         android:icon="@drawable/ic_hoadon_admin"
-        android:title="Hóa đơn"/>
+        android:title="Hóa đơn mới"/>
     <item
         android:id="@+id/thongKe"
         android:icon="@drawable/ic_thongke_admin"
-        android:title="Thống kê"/>
-    <item
-        android:id="@+id/doiMatKhau"
-        android:icon="@drawable/ic_doimk_admin"
-        android:title="Đổi mật khẩu"/>
+        android:title="Thống kê hoá đơn của bạn"/>
     <item
         android:id="@+id/dangXuat"
         android:icon="@drawable/ic_dangxuat"

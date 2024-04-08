@@ -19,8 +19,10 @@ import com.example.levents.R;
 import com.example.levents.databinding.ItemsQlsanphamBinding;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class QLSP_Adapter extends RecyclerView.Adapter<QLSP_Adapter.ViewHolder> {
     private ArrayList<Sanpham> list;
@@ -50,9 +52,12 @@ public class QLSP_Adapter extends RecyclerView.Adapter<QLSP_Adapter.ViewHolder> 
 //                " soluongbanra integer not null)";
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        String giaFormatted = numberFormat.format(list.get(position).getGia());
         holder.binding.txtmaSanPham.setText("MÃ sản phẩm: " + String.valueOf(list.get(position).getMasanpham()));
         holder.binding.txtTenSanPham.setText("Tên sản phẩm: " + list.get(position).getTensanpham());
-        holder.binding.txtgiaSanPham.setText("Giá sản phẩm: " + String.valueOf(list.get(position).getGia()));
+        holder.binding.txtgiaSanPham.setText("Giá sản phẩm: " + String.valueOf(giaFormatted));
         holder.binding.txtmoTa.setText("Mô tả: "+list.get(position).getMota());
         holder.binding.txtsoluong.setText("Số lượng: "+String.valueOf(list.get(position).getSoluong()));
         holder.binding.txtSoLuongBanRa.setText("Số lượng đã bán: " + list.get(position).getSoluotbanra());

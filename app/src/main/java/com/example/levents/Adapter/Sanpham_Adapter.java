@@ -14,8 +14,10 @@ import com.example.levents.Model.Sanpham;
 import com.example.levents.databinding.ItemSanphamBinding;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Sanpham_Adapter extends RecyclerView.Adapter<Sanpham_Adapter.ViewHolder> {
     protected ArrayList<Sanpham> list;
@@ -47,9 +49,12 @@ public class Sanpham_Adapter extends RecyclerView.Adapter<Sanpham_Adapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull Sanpham_Adapter.ViewHolder holder, int position) {
         Sanpham sanpham = list.get(position);
+        Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        String giaFormatted = numberFormat.format(list.get(position).getGia());
         Picasso.get().load(list.get(position).getAnhsanpham()).into(holder.binding.imgItemAnhSanPham);
         holder.binding.txtTenSanPham.setText(String.valueOf(list.get(position).getTensanpham()));
-        holder.binding.txtGiaSanPham.setText(String.valueOf(list.get(position).getGia()) + "VND");
+        holder.binding.txtGiaSanPham.setText(String.valueOf(giaFormatted));
         holder.binding.txtSoluong.setText("Số lượng: "+String.valueOf(list.get(position).getSoluong()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

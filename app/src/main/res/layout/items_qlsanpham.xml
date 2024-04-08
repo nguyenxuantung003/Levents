@@ -32,6 +32,7 @@
 
                 <TextView
                     android:id="@+id/txtma_san_pham"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
@@ -53,6 +54,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
                 android:text="ten san pham "
                 android:textSize="20sp" />
 
@@ -78,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
                 android:text="Gia san pham "
+                android:textColor="@color/green"
                 android:textSize="20sp" />
             <TextView
                 android:id="@+id/txtsoluong"
@@ -85,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10sp"
                 android:text="so luong"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -96,12 +101,15 @@
         android:layout_marginLeft="20sp"
         android:layout_marginTop="5sp"
         android:text="So luong da ban: "
+        android:textColor="@color/black"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/txtmo_ta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20sp"
+        android:textColor="@color/black"
+        android:textStyle="italic"
         android:layout_marginBottom="10sp"
         android:text="mô tả "
         android:textSize="20sp" />

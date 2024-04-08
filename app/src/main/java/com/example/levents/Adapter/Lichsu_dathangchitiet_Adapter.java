@@ -14,7 +14,9 @@ import com.example.levents.Model.Hoadon;
 import com.example.levents.Model.Hoadonchitiet;
 import com.example.levents.databinding.ItemLichsuDathangBinding;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Lichsu_dathangchitiet_Adapter extends RecyclerView.Adapter<Lichsu_dathangchitiet_Adapter.ViewHolder> {
     private ArrayList<Hoadon> hoadons;
@@ -42,12 +44,15 @@ public class Lichsu_dathangchitiet_Adapter extends RecyclerView.Adapter<Lichsu_d
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
        Hoadon donhang = hoadons.get(position);
+        Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        String giaFormatted = numberFormat.format(donhang.getTongTien());
         holder.binding.txtMdonhang.setText("Mã đơn hàng: " +String.valueOf(donhang.getMaDonHang()));
         holder.binding.txtMnguoidung.setText("Mã người dung: " +String.valueOf(donhang.getMaTaiKhoan()));
         holder.binding.txtDHTennguoidung.setText("Tên người dùng: " +donhang.getTenTaiKhoan());
         holder.binding.txtNgayDat.setText("Ngày đặt hàng: " +donhang.getNgayDatHang());
         holder.binding.txtTrangThai.setText("Trạng thái: " + donhang.getTrangthai());
-        holder.binding.txtTongTien.setText("Tổng tiền: " +String.valueOf(donhang.getTongTien()));
+        holder.binding.txtTongTien.setText("Tổng tiền: " +String.valueOf(giaFormatted));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

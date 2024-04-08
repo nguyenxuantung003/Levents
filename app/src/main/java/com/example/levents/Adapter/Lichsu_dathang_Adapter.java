@@ -15,8 +15,11 @@ import com.example.levents.Interface.OnItemClick;
 import com.example.levents.Model.Hoadon;
 import com.example.levents.databinding.ItemLichsuDathangBinding;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 public class Lichsu_dathang_Adapter extends RecyclerView.Adapter<Lichsu_dathang_Adapter.ViewHolder> {
 private ArrayList<Hoadon> hoadons;
 private Donhang_DAO donhangDao;
@@ -52,14 +55,16 @@ private Context context;
             Log.d("HoadonData", "Ngày đặt hàng: " + donhang.getNgayDatHang());
             Log.d("HoadonData", "Trạng thái: " + donhang.getTrangthai());
             Log.d("HoadonData", "Tổng tiền: " + donhang.getTongTien());
-
+            Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+            NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+            String giaFormatted = numberFormat.format(donhang.getTongTien());
             // Tiếp tục gán dữ liệu cho các view khác trong item
             holder.binding.txtMdonhang.setText("Mã đơn hàng: " + String.valueOf(donhang.getMaDonHang()));
             holder.binding.txtMnguoidung.setText("Mã người dùng: " + String.valueOf(donhang.getMaTaiKhoan()));
             holder.binding.txtDHTennguoidung.setText("Tên người dùng: " + donhang.getTenTaiKhoan());
             holder.binding.txtNgayDat.setText("Ngày đặt hàng: " + donhang.getNgayDatHang());
             holder.binding.txtTrangThai.setText("Trạng thái: " + donhang.getTrangthai());
-            holder.binding.txtTongTien.setText("Tổng tiền: " + String.valueOf(donhang.getTongTien()));
+            holder.binding.txtTongTien.setText("Tổng tiền: " + String.valueOf(giaFormatted));
         } else {
             Log.e("HoadonData", "Đối tượng Hoadon null tại vị trí: " + position);
         }

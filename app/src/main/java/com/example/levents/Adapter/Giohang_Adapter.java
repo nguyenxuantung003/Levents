@@ -14,7 +14,9 @@ import com.example.levents.Model.Giohang;
 import com.example.levents.databinding.ItemSanphamIngiohangBinding;
 import com.squareup.picasso.Picasso;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHolder> {
     private ArrayList<Giohang> list;
@@ -41,7 +43,11 @@ public class Giohang_Adapter extends RecyclerView.Adapter<Giohang_Adapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Giohang giohang = list.get(position);
         // Hiển thị thông tin sản phẩm
-        holder.binding.txtgia.setText(String.valueOf(giohang.getSoLuongMua() * giohang.getGiaSanPham()) + "VND");
+        Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
+        NumberFormat numberFormat = NumberFormat.getCurrencyInstance(locale);
+        String giaFormatted = numberFormat.format(giohang.getSoLuongMua() * giohang.getGiaSanPham());
+        holder.binding.txtgia.setText(giaFormatted);
+        //holder.binding.txtgia.setText(String.valueOf(giohang.getSoLuongMua() * giohang.getGiaSanPham()) + "VND");
         holder.binding.txtsoluong.setText(String.valueOf(giohang.getSoLuongMua()));
         holder.binding.txttensp.setText(giohang.getTenSanPham());
         Picasso.get().load(list.get(position).getAnhSanPham()).into(holder.binding.imganhsp);
