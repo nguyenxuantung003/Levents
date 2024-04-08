@@ -19,6 +19,44 @@ public class Donhang_DAO {
     public Donhang_DAO(Context context) {
         this.dbHelper = new DBhelper(context);
     }
+
+    public ArrayList<Hoadon> getDsDonHang2() {
+        ArrayList<Hoadon> list = new ArrayList<>();
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        try {
+            Cursor cursor = database.rawQuery("SELECT HOADON.mahoadon, KHACHHANG.makhachhang, KHACHHANG.hoten, HOADON.ngaydathang, HOADON.tongtien, HOADON.trangthai, NHANVIEN.hoten " +
+                    "FROM HOADON " +
+                    "INNER JOIN KHACHHANG ON HOADON.makhachhang = KHACHHANG.makhachhang " +
+                    "LEFT JOIN NHANVIEN ON HOADON.manhanvien = NHANVIEN.manhanvien", null);
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                do {
+                    Hoadon donHang = new Hoadon();
+                    donHang.setMaDonHang(cursor.getInt(0));
+                    donHang.setMaTaiKhoan(cursor.getInt(1));
+                    donHang.setTenTaiKhoan(cursor.getString(2));
+                    donHang.setNgayDatHang(cursor.getString(3));
+                    donHang.setTongTien(cursor.getInt(4));
+                    donHang.setTrangthai(cursor.getString(5));
+                    donHang.setTennhanvien(cursor.getString(6)); // Thêm tên nhân viên vào đơn hàng
+                    list.add(donHang);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "Lỗi", e);
+        }
+        for (Hoadon donHang : list) {
+            Log.d("HoaDon_DAO", "Mã đơn hàng: " + donHang.getMaDonHang());
+            Log.d("HoaDon_DAO", "Mã khách hàng: " + donHang.getMaTaiKhoan());
+            Log.d("HoaDon_DAO", "Tên khách hàng: " + donHang.getTenTaiKhoan());
+            Log.d("HoaDon_DAO", "Ngày đặt hàng: " + donHang.getNgayDatHang());
+            Log.d("HoaDon_DAO", "Tổng tiền: " + donHang.getTongTien());
+            Log.d("HoaDon_DAO", "Trạng thái: " + donHang.getTrangthai());
+            Log.d("HoaDon_DAO", "Tên nhân viên: " + donHang.getTennhanvien());
+            Log.d("HoaDon_DAAO)", "----------------------------------");
+        }
+        return list;
+    }
     public ArrayList<Hoadon> getDsDonHang() {
         ArrayList<Hoadon> list = new ArrayList<>();
         SQLiteDatabase database = dbHelper.getWritableDatabase();
@@ -62,6 +100,7 @@ public class Donhang_DAO {
         ContentValues values = new ContentValues();
         values.put("makhachhang", donHang.getMaTaiKhoan());
         values.put("trangthai", donHang.getTrangthai());
+        values.put("manhanvien", donHang.getManhanvien());
         long check = sqLiteDatabase.update("HOADON", values, "mahoadon = ?", new String[]{String.valueOf(donHang.getMaDonHang())});
         return check > 0;
 

@@ -26,6 +26,17 @@ public class Nhanvien {
         this.loaitaikhoan = loaitaikhoan;
     }
 
+    public Nhanvien(String tenDangNhap, String matKhau, String hoTen, String email, String sdt, String diaChi, String anh, String loaitaikhoan) {
+        this.tendangnhap = tenDangNhap;
+        this.matkhau = matKhau;
+        this.hoten = hoTen;
+        this.email = email;
+        this.sodienthoai = sdt;
+        this.diachi = diaChi;
+        this.anhnhanvien = anh;
+        this.loaitaikhoan = loaitaikhoan;
+    }
+
     public int getManhanvien() {
         return manhanvien;
     }

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="10sp"
-    android:background="@drawable/khungsanpham_ingiohang"
+    android:background="@drawable/grey_background"
     >
     <FrameLayout
         android:layout_width="match_parent"
@@ -17,6 +17,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
             android:text="Mã đơn hàng: "
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
             android:textSize="20sp" />
 
         <ImageButton
@@ -35,11 +38,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
         android:text="Mã người dùng: "
+        android:textColor="@color/black"
         android:textSize="20sp" />
     <TextView
         android:id="@+id/txt_DH_tennguoidung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:layout_marginLeft="10sp"
         android:text="Tên người dùng: "
         android:textSize="20sp" />
@@ -49,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
+        android:textColor="@color/black"
         android:text="Ngày đặt hàng: "
         android:textSize="20sp" />
 
@@ -62,12 +68,14 @@
             android:layout_weight="8"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10sp"
+            android:textColor="@color/black"
             android:text="Trạng thái: "
             android:textSize="20sp" />
         <TextView
             android:id="@+id/btnchinhsuaTrangThai"
             android:layout_weight="2"
             android:layout_width="0sp"
+            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
             android:text="Chỉnh sửa"
             android:gravity="right"
@@ -84,7 +92,18 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
         android:text="Tổng tiền:    "
-        android:drawableEnd="@drawable/ic_coin"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:layout_marginBottom="10sp"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/txt_nv_xacnhan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:text="Nhân viên xác nhận :"
+        android:textStyle="bold"
+        android:textColor="@color/green"
         android:layout_marginBottom="10sp"
         android:textSize="20sp" />
 

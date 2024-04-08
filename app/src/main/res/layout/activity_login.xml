@@ -46,24 +46,14 @@
         android:textSize="14sp"
         android:inputType="textPassword"
         android:hint="@string/mat_khau"/>
-    <TextView
-        android:id="@+id/tvQuenMatKhau"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quên mật khẩu"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        android:layout_marginBottom="25sp"
-        android:layout_gravity="end"
-        android:textColor="#3416DC"/>
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnDangNhap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#CBC09A"
         android:text="ĐĂNG NHẬP"
-        android:textColor="@color/black"
+        android:background="@drawable/cuttoms_btn"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_marginBottom="20dp"
         android:textSize="25sp"
         app:cornerRadius="15dp" />

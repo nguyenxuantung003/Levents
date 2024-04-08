@@ -1,10 +1,14 @@
 package com.example.levents.Adapter;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +28,7 @@ import com.example.levents.databinding.ItemQlHoadonBinding;
 import java.util.ArrayList;
 
 public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHolder> {
+
     protected ArrayList<Hoadon> list;
     protected Donhang_DAO donhangDao;
     private Context context;
@@ -54,6 +59,14 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
         holder.binding.txtNgayDat.setText("Ngày đặt hàng: " + hoadon.getNgayDatHang());
         holder.binding.txtTrangThai.setText("Trạng thái: " + hoadon.getTrangthai());
         holder.binding.txtTongTien.setText("Tổng tiền: " + String.valueOf(hoadon.getTongTien()));
+        String tenNhanVien = hoadon.getTennhanvien();
+        if (tenNhanVien != null) {
+            holder.binding.txtNvXacnhan.setText("Nhân viên xác nhận: " + tenNhanVien);
+            Log.d("HoaDonAdapter", "Tên nhân viên: " + tenNhanVien);
+        } else {
+            holder.binding.txtNvXacnhan.setText("Nhân viên xác nhận: Không có thông tin");
+            Log.d("HoaDonAdapter", "Không có thông tin nhân viên");
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,6 +77,9 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
             }
         });
         holder.binding.btnchinhsuaTrangThai.setOnClickListener(view -> {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("NHANVIEN", MODE_PRIVATE);
+            //Lấy ra mã người dùng
+            int manv = sharedPreferences.getInt("manhanvien", 0);
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             DialogTrangthaihoadonBinding dialogUpdateTrangThaiDonhangBinding = DialogTrangthaihoadonBinding.inflate(inflater);
@@ -100,6 +116,7 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
                 list = donhangDao.getDonHangByMaTaiKhoan(hoadon.getMaTaiKhoan());
                 hoadon.setMaDonHang(hoadon.getMaDonHang());
                 hoadon.setTrangthai(trangthai);
+                hoadon.setManhanvien(manv);
                 boolean check = donhangDao.updateDonHang(hoadon);
                 if (check) {
                     list.clear();
@@ -108,6 +125,7 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
                     notifyDataSetChanged();
                     dialog.dismiss();
                     Toast.makeText(context, "Thay đổi trang thái thành công", Toast.LENGTH_SHORT).show();
+                    Log.d("HoaDon", "Trang thai: " + trangthai + ", Ma nhan vien: " + manv);
                 } else {
                     Toast.makeText(context, "Thay đổi trạng thái thất bại", Toast.LENGTH_SHORT).show();
                 }
