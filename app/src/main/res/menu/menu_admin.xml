@@ -17,6 +17,10 @@
         android:icon="@drawable/ic_thongke_admin"
         android:title="Thống kê hoá đơn của bạn"/>
     <item
+        android:id="@+id/ban"
+        android:icon="@drawable/ic_dangxuat"
+        android:title="Thông tin của bạn"/>
+    <item
         android:id="@+id/dangXuat"
         android:icon="@drawable/ic_dangxuat"
         android:title="Đăng xuất"/>
