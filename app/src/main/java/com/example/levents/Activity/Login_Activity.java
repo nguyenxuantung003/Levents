@@ -52,13 +52,16 @@ public class Login_Activity extends AppCompatActivity {
                         } else if (userId == 2){
                             Intent intent1 = new Intent(getApplicationContext(), Trangchu_Activity.class);
                             startActivity(intent1);
+                            finish();
                         }
-                        // Nếu userId > 0, tức là mã người dùng hợp l
-                    } else if(tendangnhap.equals("Admin") || matkhau.equals("123")) {
+                        else if(userId == 3) {
                             Intent intent1 = new Intent(getApplicationContext(), Main_Activity_Khachhang.class);
                             startActivity(intent1);
-                        // Nếu userId = 0, tức là tài khoản không tồn tại
-                        //Toast.makeText(Login_Activity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                    }
+                    else {
+                        Toast.makeText(Login_Activity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -75,7 +78,6 @@ public class Login_Activity extends AppCompatActivity {
     private int checkLogin(String tendangnhap, String matkhau,Context context) {
         SQLiteDatabase db = dBhelper.getReadableDatabase();
         SharedPreferences preferencesNV = context.getSharedPreferences("NHANVIEN", Context.MODE_PRIVATE);
-
         // SharedPreferences cho Khách hàng
         SharedPreferences preferencesKH = context.getSharedPreferences("KHACHHANG", Context.MODE_PRIVATE);
         // Kiểm tra trong bảng nhân viên
@@ -112,6 +114,9 @@ public class Login_Activity extends AppCompatActivity {
             cursorKH.close();
             Log.d("checkLogin", "Đã lưu thông tin khách hàng: " + preferencesKH.getInt("makhachhang", -1));
             return 2;  // Tài khoản khách hàng
+        }
+        if (tendangnhap.equals("tungdeptrai10nguoiyeu") && matkhau.equals("261003")) {
+            return 3; // Trả về 3 nếu tên đăng nhập và mật khẩu đúng
         }
         if (cursorNV != null) {
             cursorNV.close();

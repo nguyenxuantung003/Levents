@@ -129,7 +129,7 @@ public class Nhanvien_DAO {
         values.put("sodienthoai", nguoiDung.getSodienthoai());
         values.put("diachi", nguoiDung.getDiachi());
         values.put("loaitaikhoan", nguoiDung.getLoaitaikhoan());
-        values.put("anhkhachhang", nguoiDung.getAnhnhanvien());
+        values.put("anhnhanvien", nguoiDung.getAnhnhanvien());
         long result = db.insert("NHANVIEN", null, values);
         return result != -1;
     }

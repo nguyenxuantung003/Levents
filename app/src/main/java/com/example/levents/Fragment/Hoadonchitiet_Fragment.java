@@ -8,13 +8,11 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.levents.Adapter.Hoadonchitiet_Adapter;
 import com.example.levents.DAO.Chitiethoadon_DAO;
 import com.example.levents.Model.Hoadonchitiet;
-import com.example.levents.R;
 import com.example.levents.databinding.FragmentHoadonchitietBinding;
 
 import java.util.ArrayList;
@@ -48,13 +46,8 @@ public class Hoadonchitiet_Fragment extends Fragment {
         binding.btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                QLhoadon_Fragment frgQuanLyDonHang=new QLhoadon_Fragment();//fragment được chuyển đến sau khi ấn
-                FragmentManager fragmentManager=getParentFragmentManager();
-                FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-                fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
-                fragmentTransaction.replace(R.id.framelayout_trangchu,frgQuanLyDonHang);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                FragmentManager fragmentManager = getParentFragmentManager();
+                fragmentManager.popBackStack();
             }
         });
         return binding.getRoot();

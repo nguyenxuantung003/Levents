@@ -12,10 +12,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.levents.Fragment.QLSpham_Fragment;
+import com.example.levents.Fragment.QL_nguoidung_Fragment;
 import com.example.levents.Fragment.QL_nhanvien_Fragment;
 import com.example.levents.Fragment.QLhoadon_Fragment;
 import com.example.levents.Fragment.Thongke_Fragment;
-import com.example.levents.Fragment.Trangchu_Fragment;
 import com.example.levents.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -39,11 +39,13 @@ public class Main_Activity_Khachhang extends AppCompatActivity {
                     Loadfragment(new QLhoadon_Fragment(),false);
                 } else if (itemID == R.id.bottom_nav_thongtin){
                     Loadfragment(new Thongke_Fragment(),false);
+                } else if(itemID == R.id.bottom_nav_khachhang){
+                    Loadfragment(new QL_nguoidung_Fragment(),false);
                 }
                 return true;
             }
         });
-        Loadfragment(new Trangchu_Fragment(),true);
+        Loadfragment(new QL_nhanvien_Fragment(),true);
         SharedPreferences sharedPreferences = getSharedPreferences("KHACHHANG", MODE_PRIVATE);
         String loaiTaiKhoan = sharedPreferences.getString("loaitaikhoan", "");
         int makhachhang = sharedPreferences.getInt("makhachhang", 0);
