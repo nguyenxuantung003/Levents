@@ -32,7 +32,7 @@ public class DS_hoadon_Fragment extends Fragment {
         binding = com.example.levents.databinding.FragmentQLhoadonBinding.inflate(inflater, container, false);
         donhangDao = new Donhang_DAO(getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        String trangthai = "Đã Đặt Hàng";
+        String trangthai = "Đã đặt hàng";
         binding.rcvHoadon.setLayoutManager(layoutManager);
         list = donhangDao.getDsDonHangTheoTrangThai(trangthai);
         hoadonAdapter = new Hoadon_Adapter(list,getContext());

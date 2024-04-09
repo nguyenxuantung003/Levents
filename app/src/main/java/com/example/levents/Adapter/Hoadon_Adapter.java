@@ -97,7 +97,7 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
                 public void onClick(View view) {
                     android.app.AlertDialog.Builder builder1 = new android.app.AlertDialog.Builder(context);
                     builder1.setTitle("Lựa chọn trạng thái");
-                    String[] loai = {"Chờ phê duyệt","Đã phê duyệt","Đang giao hàng","Đã giao hàng"};
+                    String[] loai = {"Đã đặt hàng","Đã xác nhận","Đang giao hàng","Đã giao hàng"};
 
                     builder1.setItems(loai, new DialogInterface.OnClickListener() {
                         @Override
@@ -116,7 +116,6 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
 
                 if (trangthai.equals("")) {
                     dialogUpdateTrangThaiDonhangBinding.txtTrangThai.setError("Vui lòng không để trống trạng thái");
-
                 }
                 list = donhangDao.getDonHangByMaTaiKhoan(hoadon.getMaTaiKhoan());
                 hoadon.setMaDonHang(hoadon.getMaDonHang());
@@ -125,8 +124,7 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
                 boolean check = donhangDao.updateDonHang(hoadon);
                 if (check) {
                     list.clear();
-                    list.addAll(donhangDao.getDsDonHang());
-
+                    list.addAll(donhangDao.getDsDonHangTheoTrangThai("Đã đặt hàng"));
                     notifyDataSetChanged();
                     dialog.dismiss();
                     Toast.makeText(context, "Thay đổi trang thái thành công", Toast.LENGTH_SHORT).show();

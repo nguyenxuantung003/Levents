@@ -136,7 +136,7 @@ public class Giohang_Fragment extends Fragment implements Giohang_Adapter.TotalP
             // Nếu đã có item được chọn để thanh toán thì thực hiện tiếp công việc
             if (ktraItemDuocChon) {
                 // Tạo hóa đơn mới và thêm ngày đặt hàng
-                Hoadon donHang = new Hoadon(mand,ngayHienTai,tongtien,"Đã Đặt Hàng");
+                Hoadon donHang = new Hoadon(mand,ngayHienTai,tongtien,"Đã đặt hàng");
                 // Thêm ngày tháng năm đặt hàng
                 // Insert hóa đơn vào cơ sở dữ liệu
                 int orderId = donhangDao.insertDonHang(donHang);

@@ -1,5 +1,6 @@
 package com.example.levents.Fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -105,6 +106,7 @@ public class Trangchu_Fragment extends Fragment {
 
             }
 
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String searchText = charSequence.toString().toLowerCase(); // Chuyển đổi sang chữ thường
@@ -117,7 +119,6 @@ public class Trangchu_Fragment extends Fragment {
                     binding.khoangcach1.setVisibility(View.GONE);
                     binding.khoangcach2.setVisibility(View.GONE);
                     binding.tenkoquantrong.setText("Sản phẩm ");
-//                    binding.nen.setVisibility(View.VISIBLE);
                     sanphams.clear();
                     sanphams.addAll(listdem);
                     sanpham_intrangchu_adapter.notifyDataSetChanged();
@@ -125,7 +126,8 @@ public class Trangchu_Fragment extends Fragment {
                     binding.viewpage.setVisibility(View.GONE);
                     binding.khoangcach1.setVisibility(View.GONE);
                     binding.khoangcach2.setVisibility(View.GONE);
-                    binding.tenkoquantrong.setText("Sản phẩm không có trong giỏ hàng");
+                    binding.tenkoquantrong.setText("Không tìm thấy sản phẩm!");
+                    binding.tenkoquantrong.setTextColor(R.color.green);
                     sanphams.clear();
                     for (Sanpham sp : listdem) {
                         if (sp.getTensanpham().toLowerCase().contains(searchText)) {
@@ -144,36 +146,6 @@ public class Trangchu_Fragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
-            }
-        });
-        sanpham_intrangchu_adapter.notifyDataSetChanged();
-
-        sanphammoiIntrangchuAdapter.setOnItemClick(new OnItemClick() {
-            @Override
-            public void onItemClick(int position) {
-                showDialogChiTietSanPham(sanphammoiIntrangchuAdapter.getViTriSp(position));
-            }
-        });
-        binding.edtimKiem.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-            }
-        });
-        binding.edtimKiem.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
 
             }
         });
@@ -231,11 +203,13 @@ public class Trangchu_Fragment extends Fragment {
             }
         }
     }
+    @SuppressLint("ResourceAsColor")
     private void updateText() {
         if (!hasMatchingProducts) {
-            binding.tenkoquantrong.setText("Sản phẩm không có trong giỏ hàng.");
-            binding.tenkoquantrong.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
-            binding.nen.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
+            binding.tenkoquantrong.setText("Không tìm thấy sản phẩm!");
+            binding.tenkoquantrong.setTextColor(R.color.green);
+            binding.tenkoquantrong.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white));
+            binding.nen.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white));
 
         } else {
             binding.tenkoquantrong.setText("Sản phẩm ");
