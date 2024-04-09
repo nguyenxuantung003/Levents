@@ -84,7 +84,7 @@ public class Donhang_DAO {
     }
     public int xoaDonHang(int madonhang) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from CHITIETHOADON where madonhang = ?", new String[]{String.valueOf(madonhang)});
+        Cursor cursor = db.rawQuery("select * from CHITIETHOADON where mahoadon = ?", new String[]{String.valueOf(madonhang)});
         if (cursor.getCount() != 0) {
             return -1;
         }

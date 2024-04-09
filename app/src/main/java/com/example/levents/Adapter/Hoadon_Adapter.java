@@ -140,10 +140,8 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
         holder.binding.btnXoaDonHang.setOnClickListener(view -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-
             DialogXoahoadonBinding dialogXoaDonHangBinding = DialogXoahoadonBinding.inflate(inflater);
             builder.setView(dialogXoaDonHangBinding.getRoot());
-
             Dialog dialog = builder.create();
             dialog.getWindow().setBackgroundDrawableResource(R.drawable.backgroud_dialog);
             dialog.show();

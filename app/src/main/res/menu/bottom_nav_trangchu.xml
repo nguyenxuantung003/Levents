@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:icon="@drawable/ic_thongtin"
         android:title="Thông tin" />
+    <item
+        android:id="@+id/bottom_nav_khachhang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_thongtin"
+        android:title="Khách hàng" />
 </menu>
