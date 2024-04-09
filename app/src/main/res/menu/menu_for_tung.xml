@@ -9,18 +9,17 @@
         android:icon="@drawable/ic_khachhang_admin"
         android:title="Khách hàng"/>
     <item
-        android:id="@+id/hoaDonmoi"
-        android:icon="@drawable/ic_hoadon_admin"
-        android:title="Hóa đơn mới"/>
-    <item
-        android:id="@+id/thongKehoadonnv"
-        android:icon="@drawable/ic_thongke_admin"
-        android:title="Thống kê hoá đơn của bạn"/>
-    <item
-        android:id="@+id/thongtinnv"
+        android:id="@+id/qlnhanvien"
         android:icon="@drawable/ic_dangxuat"
-        android:title="Thông tin của bạn"/>
-
+        android:title="Quản lý nhân viên"/>
+    <item
+        android:id="@+id/qlhoadon"
+        android:icon="@drawable/ic_dangxuat"
+        android:title="Quản lý hoá đơn"/>
+    <item
+        android:id="@+id/qlthongke"
+        android:icon="@drawable/ic_dangxuat"
+        android:title="Thống kê"/>
     <item
         android:id="@+id/dangXuat"
         android:icon="@drawable/ic_dangxuat"

@@ -1,10 +1,10 @@
 package com.example.levents.Activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -16,25 +16,25 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.levents.Fragment.DS_hoadon_Fragment;
 import com.example.levents.Fragment.QLSpham_Fragment;
 import com.example.levents.Fragment.QL_nguoidung_Fragment;
-import com.example.levents.Fragment.TK_hoadon_nv_Fragment;
-import com.example.levents.Fragment.Thongtin_NV_Fragment;
+import com.example.levents.Fragment.QL_nhanvien_Fragment;
+import com.example.levents.Fragment.QLhoadon_Fragment;
+import com.example.levents.Fragment.Thongke_Fragment;
 import com.example.levents.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class Main_Activity_Nhanvien extends AppCompatActivity {
-
+public class Admin_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     Toolbar toolbar;
     NavigationView navigationView;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_nhanvien);
+        setContentView(R.layout.activity_admin);
         drawerLayout = findViewById(R.id.drawerLayout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
@@ -42,7 +42,7 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(
-                Main_Activity_Nhanvien.this,
+                Admin_Activity.this,
                 drawerLayout,
                 toolbar,
                 R.string.open,
@@ -62,19 +62,19 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
                 } else if (menuItem.getItemId() == R.id.khachHang) {
                     toolbar.setTitle("Khách hàng");
                     fragment = new QL_nguoidung_Fragment();
-                } else if (menuItem.getItemId() == R.id.hoaDonmoi) {
-                    toolbar.setTitle("Hóa đơn mới");
-                    fragment = new DS_hoadon_Fragment();
-                } else if (menuItem.getItemId() == R.id.thongKehoadonnv) {
-                    toolbar.setTitle("Lịch sử hoá đơn của bạn");
-                    fragment = new TK_hoadon_nv_Fragment();
-                } else if(menuItem.getItemId() == R.id.thongtinnv){
-                    toolbar.setTitle("Thông tin của bạn");
-                    fragment = new Thongtin_NV_Fragment();
+                }  else if(menuItem.getItemId() == R.id.qlhoadon){
+                    toolbar.setTitle("Quản lý hoá đơn");
+                    fragment = new QLhoadon_Fragment();
+                } else if(menuItem.getItemId() == R.id.qlnhanvien){
+                    toolbar.setTitle("Quản lý nhân viên");
+                    fragment = new QL_nhanvien_Fragment();
+                } else if(menuItem.getItemId() == R.id.qlthongke){
+                    toolbar.setTitle("Thống kê doanh thu");
+                    fragment = new Thongke_Fragment();
                 }
                 else if (menuItem.getItemId() == R.id.dangXuat) {
                     finish();
-                    startActivity(new Intent(Main_Activity_Nhanvien.this, Login_Activity.class));
+                    startActivity(new Intent(Admin_Activity.this, Login_Activity.class));
                     return true;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
@@ -92,7 +92,6 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("ADMIN", MODE_PRIVATE);
         String loaiTaiKhoan = sharedPreferences.getString("loaitaikhoan", "");
         Log.d("check","taikhoan" + loaiTaiKhoan);
-        Menu menu = navigationView.getMenu();
     }
 
     private void Loadfragment(Fragment fragment, boolean isAppInitialized){
@@ -106,5 +105,4 @@ public class Main_Activity_Nhanvien extends AppCompatActivity {
 
         fragmentTransaction.commit();
     }
-
 }

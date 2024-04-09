@@ -2,6 +2,7 @@ package com.example.levents.Activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -46,6 +47,11 @@ public class Trangchu_Activity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("KHACHHANG", MODE_PRIVATE);
         String loaiTaiKhoan = sharedPreferences.getString("loaitaikhoan", "");
         int makhachhang = sharedPreferences.getInt("makhachhang", 0);
+        Menu menu = bottomNavigationView.getMenu();
+        if (loaiTaiKhoan.equals("khachhang")){
+            MenuItem menuItem = menu.findItem(R.id.bottom_nav_khachhang);
+            menuItem.setVisible(false);
+        }
     }
 
     private void Loadfragment(Fragment fragment, boolean isAppInitialized){

@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBhelper extends SQLiteOpenHelper {
     static String DB_NAME = "Levents";
-    static int DB_VERSION = 26;
+    static int DB_VERSION = 28;
     public DBhelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
@@ -101,6 +101,7 @@ public class DBhelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(2,'PHUONG','123','Lam Quynh Phuong','phuong@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
         db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(3,'DAIAC','123','Hoang Gia Dai','dai@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
         db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(4,'PHUONGBD','123','Lam Quynh Phuong','phuong@gmail.com','0395257193','HA NOI','nhanvien','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
+        db.execSQL("INSERT INTO NHANVIEN(manhanvien, tendangnhap, matkhau,hoten, email, sodienthoai, diachi, loaitaikhoan,anhnhanvien) VALUES(10,'admin','123','Hoang Gia Dai','dai@gmail.com','0395257193','HA NOI','admin','https://i.pinimg.com/474x/4a/4e/2b/4a4e2bb5dc8078b76c2a160deeb92882.jpg')");
     }
 
     @Override

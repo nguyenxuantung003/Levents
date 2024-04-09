@@ -55,7 +55,7 @@ public class Login_Activity extends AppCompatActivity {
                             finish();
                         }
                         else if(userId == 3) {
-                            Intent intent1 = new Intent(getApplicationContext(), Main_Activity_Khachhang.class);
+                            Intent intent1 = new Intent(getApplicationContext(), Admin_Activity.class);
                             startActivity(intent1);
                             finish();
                         }
@@ -80,6 +80,7 @@ public class Login_Activity extends AppCompatActivity {
         SharedPreferences preferencesNV = context.getSharedPreferences("NHANVIEN", Context.MODE_PRIVATE);
         // SharedPreferences cho Khách hàng
         SharedPreferences preferencesKH = context.getSharedPreferences("KHACHHANG", Context.MODE_PRIVATE);
+        SharedPreferences preferencesAD = context.getSharedPreferences("ADMIN", Context.MODE_PRIVATE);
         // Kiểm tra trong bảng nhân viên
         String[] columnsNV = {"manhanvien","tendangnhap","matkhau","hoten","email","sodienthoai","diachi","loaitaikhoan","anhnhanvien"};
         String selectionNV = "tendangnhap=? AND matkhau=?";
@@ -123,7 +124,12 @@ public class Login_Activity extends AppCompatActivity {
             Log.d("checkLogin", "Đã lưu thông tin khách hàng: " + preferencesKH.getInt("makhachhang", -1));
             return 2;  // Tài khoản khách hàng
         }
+        String loaitaikhoan = "";
         if (tendangnhap.equals("tungdeptrai10nguoiyeu") && matkhau.equals("261003")) {
+            loaitaikhoan = "admin"; // Đặt loại tài khoản cho admin
+            SharedPreferences.Editor editorAD = preferencesAD.edit();
+            editorAD.putString("loaitaikhoan", loaitaikhoan);
+            editorAD.apply();
             return 3; // Trả về 3 nếu tên đăng nhập và mật khẩu đúng
         }
         if (cursorNV != null) {
