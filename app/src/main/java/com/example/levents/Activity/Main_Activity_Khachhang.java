@@ -2,6 +2,7 @@ package com.example.levents.Activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -22,11 +23,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class Main_Activity_Khachhang extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FrameLayout frameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_trangchu);
-        anhxa();
+        setContentView(R.layout.activity_main);
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -48,6 +49,7 @@ public class Main_Activity_Khachhang extends AppCompatActivity {
         Loadfragment(new QL_nhanvien_Fragment(),true);
         SharedPreferences sharedPreferences = getSharedPreferences("KHACHHANG", MODE_PRIVATE);
         String loaiTaiKhoan = sharedPreferences.getString("loaitaikhoan", "");
+        Log.d("amin","loaitaikhoan = " + loaiTaiKhoan);
         int makhachhang = sharedPreferences.getInt("makhachhang", 0);
     }
 
@@ -63,9 +65,5 @@ public class Main_Activity_Khachhang extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    private void anhxa(){
-        bottomNavigationView = findViewById(R.id.bottomnavicationview_trangchu);
-        frameLayout = findViewById(R.id.framelayout_trangchu);
 
-    }
 }
