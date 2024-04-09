@@ -30,6 +30,30 @@ public class Nhanvien_DAO {
             Log.e(TAG, "Context is null in NguoiDungDao constructor");
         }
     }
+    public Nhanvien getNhanVienByMaTaiKhoan(int maTaiKhoan) {
+        SQLiteDatabase db = dBhelper.getReadableDatabase();
+        Nhanvien nguoiDung = null;
+        try {
+            Cursor cursor = db.rawQuery("SELECT * FROM NHANVIEN WHERE manhanvien = ?", new String[]{String.valueOf(maTaiKhoan)});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                nguoiDung = new Nhanvien();
+                nguoiDung.setManhanvien(cursor.getInt(0));
+                nguoiDung.setTendangnhap(cursor.getString(1));
+                nguoiDung.setMatkhau(cursor.getString(2));
+                nguoiDung.setHoten(cursor.getString(3));
+                nguoiDung.setEmail(cursor.getString(4));
+                nguoiDung.setSodienthoai(cursor.getString(5));
+                nguoiDung.setDiachi(cursor.getString(6));
+                nguoiDung.setLoaitaikhoan(cursor.getString(7));
+                nguoiDung.setAnhnhanvien(cursor.getString(8));
+            }
+            cursor.close();
+        } catch (Exception e) {
+            Log.e(TAG, "Lỗi", e);
+        }
+        return nguoiDung;
+    }
 
     public boolean insertNhanVien(String tenDangNhap, String matKhau, String hoTen, String email, String soDienThoai, String diaChi, String loaiTaiKhoan, String anhNhanVien) {
         SQLiteDatabase db = dBhelper.getWritableDatabase();
@@ -82,6 +106,23 @@ public class Nhanvien_DAO {
             Log.e(TAG, "Lỗi khi lấy dữ liệu nhân viên từ cơ sở dữ liệu", e);
         }
         return list;
+    }
+    public boolean updatenhanvien(Nhanvien nguoiDung) {
+        SQLiteDatabase db = dBhelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("anhnhanvien", nguoiDung.getAnhnhanvien());
+        values.put("hoten", nguoiDung.getHoten());
+        values.put("tendangnhap", nguoiDung.getTendangnhap());
+        values.put("sodienthoai", nguoiDung.getSodienthoai());
+        values.put("matkhau", nguoiDung.getMatkhau());
+        values.put("email", nguoiDung.getEmail());
+        values.put("diachi", nguoiDung.getDiachi());
+        long check = db.update("NHANVIEN", values, "manhanvien = ?", new String[]{String.valueOf(nguoiDung.getManhanvien())});
+        if (check == -1) {
+            return false;
+        } else {
+            return true;
+        }
     }
     public boolean updateNhanVien(int maNhanVien, String tenDangNhap, String matKhau, String hoTen, String email, String soDienThoai, String diaChi, String loaiTaiKhoan, String anhNhanVien) {
         SQLiteDatabase db = dBhelper.getWritableDatabase();

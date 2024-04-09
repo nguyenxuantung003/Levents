@@ -81,13 +81,21 @@ public class Login_Activity extends AppCompatActivity {
         // SharedPreferences cho Khách hàng
         SharedPreferences preferencesKH = context.getSharedPreferences("KHACHHANG", Context.MODE_PRIVATE);
         // Kiểm tra trong bảng nhân viên
-        String[] columnsNV = {"manhanvien"};
+        String[] columnsNV = {"manhanvien","tendangnhap","matkhau","hoten","email","sodienthoai","diachi","loaitaikhoan","anhnhanvien"};
         String selectionNV = "tendangnhap=? AND matkhau=?";
         String[] selectionArgs = {tendangnhap, matkhau};
         Cursor cursorNV = db.query("NHANVIEN", columnsNV, selectionNV, selectionArgs, null, null, null);
         if (cursorNV != null && cursorNV.moveToFirst()) {
             SharedPreferences.Editor editorNV = preferencesNV.edit();
             editorNV.putInt("manhanvien", cursorNV.getInt(cursorNV.getColumnIndex("manhanvien")));
+            editorNV.putString("tendangnhap", cursorNV.getString(cursorNV.getColumnIndex("tendangnhap")));
+            editorNV.putString("matkhau", cursorNV.getString(cursorNV.getColumnIndex("matkhau")));
+            editorNV.putString("hoten", cursorNV.getString(cursorNV.getColumnIndex("hoten")));
+            editorNV.putString("email", cursorNV.getString(cursorNV.getColumnIndex("email")));
+            editorNV.putString("sodienthoai", cursorNV.getString(cursorNV.getColumnIndex("sodienthoai")));
+            editorNV.putString("diachi", cursorNV.getString(cursorNV.getColumnIndex("diachi")));
+            editorNV.putString("loaitaikhoan", cursorNV.getString(cursorNV.getColumnIndex("loaitaikhoan")));
+            editorNV.putString("anhnhanvien", cursorNV.getString(cursorNV.getColumnIndex("anhnhanvien")));
             // Tiếp tục lấy dữ liệu từ Cursor và lưu vào SharedPreferences cho Nhân viên
             editorNV.commit();
             cursorNV.close();

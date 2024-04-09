@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Levents"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.UpdateTT_NV_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ChangePassActivity"
             android:exported="false" />
         <activity
