@@ -43,7 +43,7 @@ public class ThongKe_DAO {
     public ArrayList<Hoadonchitiet> getTop3() {
         ArrayList<Hoadonchitiet> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dBhelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SANPHAM.masanpham, SANPHAM.tensanpham, SUM(CHITIETHOADON.soluong) AS soluongban\n" +
+        Cursor cursor = sqLiteDatabase.rawQuery("SELECT SANPHAM.masanpham, SANPHAM.tensanpham,SANPHAM.anhsanpham, SUM(CHITIETHOADON.soluong) AS soluongban\n" +
                 "FROM SANPHAM\n" +
                 "JOIN CHITIETHOADON ON SANPHAM.masanpham = CHITIETHOADON.masanpham\n" +
                 "GROUP BY SANPHAM.masanpham\n" +
@@ -52,7 +52,7 @@ public class ThongKe_DAO {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             do {
-                list.add(new Hoadonchitiet(cursor.getInt(0), cursor.getString(1), cursor.getInt(2)));
+                list.add(new Hoadonchitiet(cursor.getInt(0), cursor.getString(1),cursor.getString(2), cursor.getInt(3)));
             } while (cursor.moveToNext());
         }
 

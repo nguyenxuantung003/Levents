@@ -12,6 +12,13 @@ public class Hoadonchitiet {
 
     public Hoadonchitiet() {
     }
+    public Hoadonchitiet(int maSanPham, String tenSanPham, String anhSanPham, int soLuongBan) {
+        this.maSanPham = maSanPham;
+        this.tenSanPham = tenSanPham;
+        this.anhsanpham= anhSanPham;
+        this.soLuong = soLuongBan;
+    }
+
 
     public Hoadonchitiet(int maDonHang, int maSanPham, int soLuong, int donGia, int thanhTien) {
         this.maDonHang = maDonHang;

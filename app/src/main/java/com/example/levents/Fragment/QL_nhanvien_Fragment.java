@@ -35,9 +35,9 @@ public class QL_nhanvien_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_q_l_nguoidung_, container, false);
-        recyclerViewND = view.findViewById(R.id.rcv_nguoidung);
-        addND = view.findViewById(R.id.image_addND);
+        View view = inflater.inflate(R.layout.fragment_q_l_nhanvien_, container, false);
+        recyclerViewND = view.findViewById(R.id.rcv_nhanvien);
+        addND = view.findViewById(R.id.image_addNV);
         addND.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

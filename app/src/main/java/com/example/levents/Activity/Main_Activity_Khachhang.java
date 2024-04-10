@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.levents.Fragment.QLSpham_Fragment;
-import com.example.levents.Fragment.QL_nguoidung_Fragment;
 import com.example.levents.Fragment.QL_nhanvien_Fragment;
 import com.example.levents.Fragment.QLhoadon_Fragment;
 import com.example.levents.Fragment.Thongke_Fragment;
@@ -40,8 +39,6 @@ public class Main_Activity_Khachhang extends AppCompatActivity {
                     Loadfragment(new QLhoadon_Fragment(),false);
                 } else if (itemID == R.id.bottom_nav_thongtin){
                     Loadfragment(new Thongke_Fragment(),false);
-                } else if(itemID == R.id.bottom_nav_khachhang){
-                    Loadfragment(new QL_nguoidung_Fragment(),false);
                 }
                 return true;
             }

@@ -115,10 +115,18 @@ public class Khachang_DAO {
         return tonTai;
     }
 
-    public boolean xoaNguoiDung(Khachhang nd) {
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
-        long check = database.delete("KHACHHANG", "mataikhoan = ?", new String[]{String.valueOf(nd.getMakhachhang())});
-        return check > 0;
+    public boolean xoaKhachhang(int makhachhang) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        boolean success = false;
+        try {
+            int rowsAffected = db.delete("KHACHHANG", "makhachhang = ?", new String[]{String.valueOf(makhachhang)});
+            success = rowsAffected > 0;
+        } catch (Exception e) {
+            Log.e(TAG, "Lỗi khi xóa nhân viên khỏi cơ sở dữ liệu", e);
+        } finally {
+            db.close();
+        }
+        return success;
     }
 
     public boolean update(int manguoidung, String tennguoidung, int sotien) {

@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.levents.DAO.Nhanvien_DAO;
 import com.example.levents.Database.DBhelper;
-import com.example.levents.Model.Khachhang;
 import com.example.levents.Model.Nhanvien;
 import com.example.levents.R;
 import com.squareup.picasso.Picasso;
@@ -60,13 +60,22 @@ public class Nhanvien_Adapter extends RecyclerView.Adapter<Nhanvien_Adapter.View
 
     }
     private void showDeleteConfirmationDialog(final int position) {
+        Nhanvien nhanVien = listNV.get(position);
+        int maNhanVien = nhanVien.getManhanvien();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Bạn có chắc muốn xóa người dùng này?")
                 .setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        listNV.remove(position);
-                        notifyDataSetChanged();
+                        if (nhanvienDao.deleteNhanVien(maNhanVien)) {
+                            // Nếu xóa thành công từ cơ sở dữ liệu, tiếp tục xóa người dùng từ danh sách
+                            listNV.remove(position);
+                            // Cập nhật danh sách sau khi xóa
+                            notifyDataSetChanged();
+                        } else {
+                            // Xử lý khi không thể xóa từ cơ sở dữ liệu
+                            Toast.makeText(context, "Không thể xóa người dùng từ cơ sở dữ liệu", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -97,7 +106,6 @@ public class Nhanvien_Adapter extends RecyclerView.Adapter<Nhanvien_Adapter.View
             email = itemView.findViewById(R.id.tv_emailnguoidung);
             diachi = itemView.findViewById(R.id.tv_diachinguoidung);
             sdt = itemView.findViewById(R.id.tv_sdtnguoidung);
-            tien = itemView.findViewById(R.id.tv_tiennguoidung);
         }
     }
 }

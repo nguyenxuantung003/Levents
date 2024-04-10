@@ -81,6 +81,22 @@ public class Donhang_DAO {
             Log.d(TAG, "Lỗi", e);
         }
         return list;
+    }public int xoaDonHangVaChiTiet(int maDonHang) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Xóa các mục chi tiết hóa đơn tương ứng
+        int rowsDeletedChiTiet = db.delete("CHITIETHOADON", "mahoadon = ?", new String[]{String.valueOf(maDonHang)});
+
+        // Xóa đơn hàng
+        int rowsDeletedDonHang = db.delete("HOADON", "mahoadon = ?", new String[]{String.valueOf(maDonHang)});
+
+        if (rowsDeletedDonHang > 0) {
+            // Đã xóa thành công
+            return 1;
+        } else {
+            // Không thể xóa
+            return 0;
+        }
     }
     public int xoaDonHang(int madonhang) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();

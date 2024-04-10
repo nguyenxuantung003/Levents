@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,13 +60,22 @@ public class NguoiDung_Adapter extends RecyclerView.Adapter<NguoiDung_Adapter.Ng
     }
 
     private void showDeleteConfirmationDialog(final int position) {
+        Khachhang khachhang = listKh.get(position);
+        int maNhanVien = khachhang.getMakhachhang();
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Bạn có chắc muốn xóa người dùng này?")
                 .setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        listKh.remove(position);
-                        notifyDataSetChanged();
+                        if (khachangDao.xoaKhachhang(maNhanVien)) {
+                            // Nếu xóa thành công từ cơ sở dữ liệu, tiếp tục xóa người dùng từ danh sách
+                            listKh.remove(position);
+                            // Cập nhật danh sách sau khi xóa
+                            notifyDataSetChanged();
+                        } else {
+                            // Xử lý khi không thể xóa từ cơ sở dữ liệu
+                            Toast.makeText(context, "Không thể xóa người dùng từ cơ sở dữ liệu", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 })
                 .setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -96,7 +106,6 @@ public class NguoiDung_Adapter extends RecyclerView.Adapter<NguoiDung_Adapter.Ng
             email = itemView.findViewById(R.id.tv_emailnguoidung);
             diachi = itemView.findViewById(R.id.tv_diachinguoidung);
             sdt = itemView.findViewById(R.id.tv_sdtnguoidung);
-            tien = itemView.findViewById(R.id.tv_tiennguoidung);
         }
     }
 }

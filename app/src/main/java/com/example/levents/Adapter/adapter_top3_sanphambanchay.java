@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.levents.DAO.ThongKe_DAO;
 import com.example.levents.Model.Hoadonchitiet;
 import com.example.levents.databinding.ItemTop3SanphamBanchayBinding;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -34,12 +35,11 @@ public class adapter_top3_sanphambanchay extends RecyclerView.Adapter<adapter_to
 
     @Override
     public void onBindViewHolder(@NonNull Viewh holder, int position) {
+        Picasso.get().load(list.get(position).getAnhsanpham()).into(holder.biding.imgSpbc);
         holder.biding.txtmaSanPham.setText("MÃ sản phẩm: " + String.valueOf(list.get(position).getMaSanPham()));
-        holder.biding.txttenLoaiSanPham.setText("Tên sản phẩm: " + list.get(position).getTenSanPham());
+        holder.biding.txtTenSanPham.setText("Tên sản phẩm: " + list.get(position).getTenSanPham());
         holder.biding.txtsoluongban.setText("Số lượng: "+String.valueOf(list.get(position).getSoLuong()));
-
     }
-
     @Override
     public int getItemCount() {
         return list.size();

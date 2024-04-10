@@ -155,14 +155,14 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
             dialogXoaDonHangBinding.btnConfilmXoaDonHang.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int check = donhangDao.xoaDonHang(list.get(holder.getAdapterPosition()).getMaDonHang());
+                    int check = donhangDao.xoaDonHangVaChiTiet(list.get(holder.getAdapterPosition()).getMaDonHang());
                     switch (check) {
                         case 1:
                             list.clear();
                             list.addAll(donhangDao.getDsDonHang());
                             notifyDataSetChanged();
                             dialog.dismiss();
-                            Toast.makeText(context, "Xóa thành công Đơn hàng", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Xóa thành công Đơn hàng và chi tiết đơn hàng liên quan", Toast.LENGTH_SHORT).show();
                             break;
                         case 0:
                             Toast.makeText(context, "Xóa không thành công Đơn hàng", Toast.LENGTH_SHORT).show();
