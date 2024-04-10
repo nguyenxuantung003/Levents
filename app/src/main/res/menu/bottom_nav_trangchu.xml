@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/bottom_nav_trangchu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MenuTitle" />
+        android:icon="@drawable/home_icon"
+        android:title="Trang chủ" />
     <item
         android:id="@+id/bottom_nav_sanpham"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MenuTitle" />
+        android:icon="@drawable/ic_sanpham_admin"
+        android:title="Sản phẩm" />
     <item
         android:id="@+id/bottom_nav_giohang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MenuTitle" />
+        android:icon="@drawable/ic_giohang"
+        android:title="Giỏ hàng" />
     <item
         android:id="@+id/bottom_nav_thongtin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:ignore="MenuTitle" />
-    <item
-        android:id="@+id/bottom_nav_khachhang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MenuTitle" />
+        android:icon="@drawable/ic_thongtin"
+        android:title="Lịch sử" />
 </menu>

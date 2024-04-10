@@ -48,10 +48,6 @@ public class Trangchu_Activity extends AppCompatActivity {
         String loaiTaiKhoan = sharedPreferences.getString("loaitaikhoan", "");
         int makhachhang = sharedPreferences.getInt("makhachhang", 0);
         Menu menu = bottomNavigationView.getMenu();
-        if (loaiTaiKhoan.equals("khachhang")){
-            MenuItem menuItem = menu.findItem(R.id.bottom_nav_khachhang);
-            menuItem.setVisible(false);
-        }
     }
 
     private void Loadfragment(Fragment fragment, boolean isAppInitialized){
