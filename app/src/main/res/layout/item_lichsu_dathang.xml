@@ -63,4 +63,14 @@
         android:text="Tổng tiền:    "
         android:layout_marginBottom="10sp"
         android:textSize="20sp" />
+    <TextView
+        android:id="@+id/txt_danhanhang"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:text="Đã nhận hàng"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/green"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>

@@ -43,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
         Picasso.get().load(urlAnh).into(binding.imgAvatarProfile);
         binding.btnPDangXuat.setOnClickListener(view -> {
             finish();
+            startActivity(new Intent(ProfileActivity.this, Login_Activity.class));
         });
         binding.imgBack.setOnClickListener(new View.OnClickListener() {
                                                @Override

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +25,7 @@ public class Lichsu_dathang_Adapter extends RecyclerView.Adapter<Lichsu_dathang_
 private ArrayList<Hoadon> hoadons;
 private Donhang_DAO donhangDao;
 private Context context;
+
 
     public Lichsu_dathang_Adapter( Context context,ArrayList<Hoadon> hoadons) {
         this.hoadons = hoadons;
@@ -46,6 +48,7 @@ private Context context;
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         Hoadon donhang = hoadons.get(position);
         if (donhang != null) {
             // Kiểm tra đối tượng Hoadon có null hay không trước khi truy cập dữ liệu
@@ -65,6 +68,11 @@ private Context context;
             holder.binding.txtNgayDat.setText("Ngày đặt hàng: " + donhang.getNgayDatHang());
             holder.binding.txtTrangThai.setText("Trạng thái: " + donhang.getTrangthai());
             holder.binding.txtTongTien.setText("Tổng tiền: " + String.valueOf(giaFormatted));
+            holder.binding.txtDanhanhang.setVisibility(View.GONE);
+
+            if (hoadons.get(position).getTrangthai().equals("Đang giao hàng")) {
+                holder.binding.txtDanhanhang.setVisibility(View.VISIBLE);
+            }
         } else {
             Log.e("HoadonData", "Đối tượng Hoadon null tại vị trí: " + position);
         }
@@ -75,6 +83,28 @@ private Context context;
                     onItemClick.onItemClick(holder.getAdapterPosition());
 
                 }
+            }
+        });
+        holder.binding.txtDanhanhang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Hoadon donHang = new Hoadon();
+                donHang.setMaDonHang(hoadons.get(position).getMaDonHang()); // Thay thế bằng mã đơn hàng thực tế
+                donHang.setTrangthai("Đã nhận hàng");
+
+                // Gọi phương thức updateDonHang để cập nhật trạng thái
+                boolean result = donhangDao.updateDonHang2(donHang);
+
+                if (result) {
+                    hoadons = donhangDao.getDonHangByMaTaiKhoan(donhang.getMaTaiKhoan()); // Fetch all orders again from the database
+                    notifyDataSetChanged();
+                    // Trạng thái đã được cập nhật thành công
+                    Toast.makeText(context, "Cập nhật trạng thái đơn hàng thành công", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Có lỗi xảy ra trong quá trình cập nhật trạng thái
+                    Toast.makeText(context, "Cập nhật trạng thái đơn hàng thất bại: " , Toast.LENGTH_SHORT).show();
+                }
+                 Log.d("CC","cap nhat don hang"+ donHang.getTrangthai() + "ma don hang" + donHang.getMaDonHang());
             }
         });
     }
