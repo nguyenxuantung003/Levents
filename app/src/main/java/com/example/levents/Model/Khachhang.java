@@ -10,6 +10,15 @@ public class Khachhang {
     private String sodienthoai;
     private String anhkhachhang;
     private String loaitaikhoan;
+    private int soluongdonhang;
+
+    public int getSoluongdonhang() {
+        return soluongdonhang;
+    }
+
+    public void setSoluongdonhang(int soluongdonhang) {
+        this.soluongdonhang = soluongdonhang;
+    }
 
     public Khachhang() {
     }
@@ -35,6 +44,12 @@ public class Khachhang {
         this.sodienthoai = sodienthoai;
         this.anhkhachhang = anhkhachhang;
         this.loaitaikhoan = loaitaikhoan;
+    }
+
+    public Khachhang(String tenKhachHang, String anhKhachHang, int soLuongDonHang) {
+        this.hoten = tenKhachHang;
+        this.anhkhachhang = anhKhachHang;
+        this.soluongdonhang = soLuongDonHang;
     }
 
     public int getMakhachhang() {

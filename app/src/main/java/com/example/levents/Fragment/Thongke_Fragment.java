@@ -10,9 +10,11 @@ import android.widget.DatePicker;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.levents.Adapter.Adapter_top3_khachhang;
 import com.example.levents.Adapter.adapter_top3_sanphambanchay;
 import com.example.levents.DAO.ThongKe_DAO;
 import com.example.levents.Model.Hoadonchitiet;
+import com.example.levents.Model.Khachhang;
 import com.example.levents.databinding.FragmentThongkeBinding;
 
 import java.util.ArrayList;
@@ -33,10 +35,15 @@ public class Thongke_Fragment extends Fragment {
         view = binding.getRoot();
         ThongKe_DAO thongKeDao = new ThongKe_DAO(getContext());
         ArrayList<Hoadonchitiet> list=thongKeDao.getTop3();
+        ArrayList<Khachhang> listkh = thongKeDao.getTop3Khachhang();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext());
         binding.rvctop3sp.setLayoutManager(layoutManager);
+        binding.rvctop3kh.setLayoutManager(layoutManager2);
         adapter_top3_sanphambanchay adapter=new adapter_top3_sanphambanchay(list,getContext());
+        Adapter_top3_khachhang adapterTop3Khachhang = new Adapter_top3_khachhang(listkh,getContext());
         binding.rvctop3sp.setAdapter(adapter);
+        binding.rvctop3kh.setAdapter(adapterTop3Khachhang);
         Calendar calendar = Calendar.getInstance();
         binding.btnlichBatDau.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,11 +1,13 @@
 package com.example.levents.DAO;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.levents.Database.DBhelper;
 import com.example.levents.Model.Hoadonchitiet;
+import com.example.levents.Model.Khachhang;
 
 import java.util.ArrayList;
 
@@ -57,5 +59,36 @@ public class ThongKe_DAO {
         }
 
         return list;
+    }
+    @SuppressLint("Range")
+    public ArrayList<Khachhang> getTop3Khachhang() {
+        ArrayList<Khachhang> top3Customers = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dBhelper.getReadableDatabase();
+
+        String query = "SELECT KHACHHANG.hoten, KHACHHANG.anhkhachhang, COUNT(HOADON.mahoadon) AS soLuongDonHang " +
+                "FROM KHACHHANG " +
+                "JOIN HOADON ON KHACHHANG.makhachhang = HOADON.makhachhang " +
+                "GROUP BY KHACHHANG.makhachhang " +
+                "ORDER BY soLuongDonHang DESC " +
+                "LIMIT 3";
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String tenKhachHang = cursor.getString(cursor.getColumnIndex("hoten"));
+                String anhKhachHang = cursor.getString(cursor.getColumnIndex("anhkhachhang"));
+                int soLuongDonHang = cursor.getInt(cursor.getColumnIndex("soLuongDonHang"));
+
+                Khachhang khachHang = new Khachhang(tenKhachHang, anhKhachHang, soLuongDonHang);
+                top3Customers.add(khachHang);
+            } while (cursor.moveToNext());
+        }
+
+        if (cursor != null) {
+            cursor.close();
+        }
+
+        return top3Customers;
     }
 }
