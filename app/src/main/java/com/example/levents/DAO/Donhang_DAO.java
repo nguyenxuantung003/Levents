@@ -121,6 +121,14 @@ public class Donhang_DAO {
         return check > 0;
 
     }
+    public boolean updateDonHang2(Hoadon donHang) {
+        SQLiteDatabase sqLiteDatabase = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("trangthai", donHang.getTrangthai());
+        long check = sqLiteDatabase.update("HOADON", values, "mahoadon = ?", new String[]{String.valueOf(donHang.getMaDonHang())});
+        return check > 0;
+
+    }
     public int insertDonHang(Hoadon donHang) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
