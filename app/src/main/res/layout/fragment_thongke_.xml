@@ -178,7 +178,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.731"
-            tools:listitem="@layout/item_top3_sanpham_banchay" />
+             />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:text="Top 3 khách hàng "
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:layout_gravity="center_horizontal"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvctop3kh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.731"
+            />
         />
     </LinearLayout>
 
