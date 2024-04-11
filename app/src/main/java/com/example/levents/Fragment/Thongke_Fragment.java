@@ -34,8 +34,8 @@ public class Thongke_Fragment extends Fragment {
         binding = FragmentThongkeBinding.inflate(inflater, container, false);
         view = binding.getRoot();
         ThongKe_DAO thongKeDao = new ThongKe_DAO(getContext());
-        ArrayList<Hoadonchitiet> list=thongKeDao.getTop3();
-        ArrayList<Khachhang> listkh = thongKeDao.getTop3Khachhang();
+        ArrayList<Hoadonchitiet> list=thongKeDao.getTop32();
+        ArrayList<Khachhang> listkh = thongKeDao.getTop3Khachhang2();
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext());
         binding.rvctop3sp.setLayoutManager(layoutManager);
@@ -120,10 +120,10 @@ public class Thongke_Fragment extends Fragment {
                 String ngaybd = binding.btnlichBatDau.getText().toString();
                 String ngaykt = binding.btnlichKetThuc.getText().toString();
 
-                int tongtien = dao.tongDoanhThu(ngaybd, ngaykt);
+                int tongtien = dao.tongDoanhThu2(ngaybd, ngaykt);
                 binding.txttongTien.setText(" Tổng doanh thu:"+String.valueOf(tongtien) );
 
-                int tongdon = dao.tongDonHang(ngaybd, ngaykt);
+                int tongdon = dao.tongDonHang2(ngaybd, ngaykt);
                 binding.txtsoLuongDon.setText("Số lượng đơn hàng đã bán ra: "+String.valueOf(tongdon));
 
             }

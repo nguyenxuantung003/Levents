@@ -69,7 +69,7 @@ public class Hoadon_Adapter extends RecyclerView.Adapter<Hoadon_Adapter.ViewHold
             holder.binding.txtNvXacnhan.setText("Nhân viên xác nhận: " + tenNhanVien);
             Log.d("HoaDonAdapter", "Tên nhân viên: " + tenNhanVien);
         } else {
-            holder.binding.txtNvXacnhan.setText("Nhân viên xác nhận: Không có thông tin");
+            holder.binding.txtNvXacnhan.setText("Nhân viên xác nhận: Chưa được xác nhận!");
             Log.d("HoaDonAdapter", "Không có thông tin nhân viên");
         }
         holder.binding.btnchinhsuaTrangThai.setVisibility(View.VISIBLE);

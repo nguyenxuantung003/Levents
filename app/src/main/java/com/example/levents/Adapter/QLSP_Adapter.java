@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.levents.DAO.Sanpham_DAO;
+import com.example.levents.EditSanphamDialog;
 import com.example.levents.Model.Sanpham;
 import com.example.levents.R;
 import com.example.levents.databinding.ItemsQlsanphamBinding;
@@ -42,14 +43,6 @@ public class QLSP_Adapter extends RecyclerView.Adapter<QLSP_Adapter.ViewHolder> 
        ItemsQlsanphamBinding binding = ItemsQlsanphamBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new ViewHolder(binding);
     }
-//" masanpham integer primary key autoincrement," +
-//                " tensanpham text not null," +
-//                " gia integer not null," +
-//                " maloaisanpham integer REFERENCES LOAISANPHAM(maloaisanpham)," +
-//                " mota text not null," +
-//                " anhsanpham text not null," +
-//                " soluong integer not null," +
-//                " soluongbanra integer not null)";
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Locale locale = new Locale("vi", "VN"); // Đặt ngôn ngữ là Tiếng Việt và quốc gia là Việt Nam
@@ -71,6 +64,8 @@ public class QLSP_Adapter extends RecyclerView.Adapter<QLSP_Adapter.ViewHolder> 
         }
         Picasso.get().load(list.get(position).getAnhsanpham()).into(holder.binding.imgItemAnhSanPham);
         Sanpham sp = list.get(position);
+
+
         holder.binding.btnxoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -162,6 +157,11 @@ public class QLSP_Adapter extends RecyclerView.Adapter<QLSP_Adapter.ViewHolder> 
                 });
             }
         });
+    }
+    private void showEditProductDialog(Sanpham sanpham) {
+        EditSanphamDialog dialog = new EditSanphamDialog(context);
+        // Truyền thông tin của sản phẩm vào dialog để hiển thị sẵn
+        dialog.show();
     }
 
     @Override
