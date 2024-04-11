@@ -5,10 +5,6 @@
         android:icon="@drawable/ic_sanpham_admin"
         android:title="Sản phẩm"/>
     <item
-        android:id="@+id/khachHang"
-        android:icon="@drawable/ic_khachhang_admin"
-        android:title="Khách hàng"/>
-    <item
         android:id="@+id/hoaDonmoi"
         android:icon="@drawable/ic_hoadon_admin"
         android:title="Hóa đơn mới"/>
